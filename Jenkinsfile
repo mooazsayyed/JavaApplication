@@ -19,5 +19,17 @@ pipeline {
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/mooazsayyed/JavaApplication'
             }
         }
+        stage("Build") {
+            steps {
+                echo "Building..........................."
+                sh "mvn clean install"
+            }
+        }
+        stage("Test") {
+            steps {
+                echo "Testing..........................."
+                sh "mvn test"
+            }
+        }
     }
 }
