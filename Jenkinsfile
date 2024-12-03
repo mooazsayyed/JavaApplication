@@ -6,12 +6,12 @@ pipeline {
         jdk 'Java17'
         maven 'Maven3'
     }
-    Environment {
+    environment {
         APP_NAME = "JavaApplication"
         RELEASE = "1.0.0"
         DOCKER_USER = "mooaz"
         DOCKER_PASS = "dockerhub"
-        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
     }
     stages {
         stage("Cleanup Workspace") {
@@ -64,7 +64,9 @@ pipeline {
                         sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
                         sh "docker build -t ${IMAGE_NAME} ."
                         sh "docker push ${IMAGE_NAME}"
+                        }
                     }
+                }
             }
         }
     }
