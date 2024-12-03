@@ -59,8 +59,12 @@ pipeline {
             steps {
                 script {
                     echo "Building and pushing the Docker image..........................."
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                    docker.withRegistry('', 'dockerhub') {
+                        sh "sudo docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}"
                         sh "sudo docker build -t ${IMAGE_NAME} ."
+                    }
+                    docker.withRegistry('', 'dockerhub') {
+                        sh "sudo docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}"
                         sh "sudo docker push ${IMAGE_NAME}"
                     }
                 }
