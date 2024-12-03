@@ -9,6 +9,7 @@ pipeline {
     environment {
         APP_NAME = "java-application"
         RELEASE = "1.0.0"
+        DOCKER_USER = "mooaz"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
     }
     stages {
