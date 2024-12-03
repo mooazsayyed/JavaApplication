@@ -9,9 +9,7 @@ pipeline {
     environment {
         APP_NAME = "JavaApplication"
         RELEASE = "1.0.0"
-        DOCKER_USER = "mooaz"
-        DOCKER_PASS = "dockerhub"
-        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
     }
     stages {
         stage("Cleanup Workspace") {
@@ -41,8 +39,8 @@ pipeline {
         stage("SonarQube analysis") {
             steps {
                 script {
-                    echo "Running sonarqube analysis..........................."
-                    withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token'){
+                    echo "Running SonarQube analysis..........................."
+                    withSonarQubeEnv('jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
                     }
                 }   
@@ -51,23 +49,29 @@ pipeline {
         stage("SonarQube Quality Gate") {
             steps {
                 script {
-                    echo "Running sonarqube qualitygate..........................."
-                    waitForQualityGate abortPipeline: false , credentialsId: 'jenkins-sonarqube-token'
+                    echo "Running SonarQube quality gate..........................."
+                    waitForQualityGate abortPipeline: true
                 }   
             }
         }
-        stage("Docker Build and Push" ) {
+        stage("Docker Build and Push") {
             steps {
                 script {
-                    echo "Building the docker image..........................."
+                    echo "Building and pushing the Docker image..........................."
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                        sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
                         sh "docker build -t ${IMAGE_NAME} ."
                         sh "docker push ${IMAGE_NAME}"
-                        }
                     }
                 }
             }
+        }
+    }
+    post {
+        success {
+            echo "Pipeline completed successfully!"
+        }
+        failure {
+            echo "Pipeline failed. Check logs for details."
         }
     }
 }
