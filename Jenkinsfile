@@ -7,7 +7,7 @@ pipeline {
         maven 'Maven3'
     }
     environment {
-        APP_NAME = "JavaApplication"
+        APP_NAME = "java-application"
         RELEASE = "1.0.0"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
     }
