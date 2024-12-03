@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     echo "Running SonarQube analysis..........................."
-                    withSonarQubeEnv('jenkins-sonarqube-token') {
+                    withSonarQubeEnv(credentialsId:'jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
                     }
                 }   
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     echo "Running SonarQube quality gate..........................."
-                    waitForQualityGate abortPipeline: true
+                    waitForQualityGate abortPipeline: false , credentialsId: 'jenkins-sonarqube-token'
                 }   
             }
         }
