@@ -41,5 +41,13 @@ pipeline {
                 }   
             }
         }
+        stage("SonarQube Quality Gate") {
+            steps {
+                script {
+                    echo "Running sonarqube qualitygate..........................."
+                    waitforqualitygate abortPipeline: false ,credentialsId: 'jenkins-sonarqube-token'
+                }   
+            }
+        }
     }
 }
