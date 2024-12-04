@@ -66,6 +66,31 @@ pipeline {
             }
         }
         }
+        stage("Update Deployment.yaml with New Image") {
+            steps {
+                script {
+                    echo "Updating deployment.yaml with new image..."
+                    // Update the deployment.yaml with the new image
+                    sh """
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
+                    """
+                }
+            }
+        }
+        stage("Deploy to Kubernetes") {
+            steps {
+                script {
+                    echo "Applying the deployment to Kubernetes..."
+                    // Ensure you have a working kubeconfig file for the Kubernetes cluster
+                    sh """
+                    export KUBECONFIG=${KUBE_CONFIG}
+                    kubectl apply -f deployment.yaml
+                    kubectl apply -f ingress.yaml
+                    """
+                }
+            }
+        }
+
     }
     post {
         success {
