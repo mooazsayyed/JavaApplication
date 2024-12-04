@@ -66,13 +66,13 @@ pipeline {
             }
         }
         }
-        stage("Update Deployment.yaml with New Image") {
+        stage("Update Deployment.yaml") {
             steps {
                 script {
                     echo "Updating deployment.yaml with new image..."
                     // Update the deployment.yaml with the new image
                     sh """
-                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' /home/ubuntu/.kube/deployment.yaml
                     """
                 }
             }
