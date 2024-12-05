@@ -44,7 +44,7 @@ pipeline {
                     echo "Running SonarQube analysis..........................."
                     withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
-                        archiveArtifacts artifacts: 'sonar-report/**/*', allowEmptyArchive: true
+                        archiveArtifacts artifacts: 'target/sonar/**/*', allowEmptyArchive: true
                     }
                 }
             }
@@ -86,14 +86,15 @@ pipeline {
                 withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
                     script {
                         echo "Updating deployment file..........................."
-                        sh """
-                            git config user.email "sam2221195@sicsr.ac.in"
-                            git config user.name "mooazsayyed"
-                            sed -i 's|image: .*|image: ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}|g' k8s/deployment.yaml
-                            git add k8s/deployment.yaml
-                            git commit -m "Update deployment image to version ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}" || echo "No changes to commit"
-                            git push https://${GITHUB_TOKEN}@github.com/mooazsayyed/gitops-javaapplication.git main
-                        """
+                            sh """
+                                git config user.email "sam2221195@sicsr.ac.in"
+                                git config user.name "mooazsayyed"
+                                sed -i 's|image: .*|image: mooaz/java-application:1.0.0-86|g' k8s/deployment.yaml
+                                git add k8s/deployment.yaml
+                                git commit -m "Update deployment image to version mooaz/java-application:1.0.0-86"
+                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/gitops-javaapplication.git main
+                            """
+
                     }
                 }
             }
