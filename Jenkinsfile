@@ -135,7 +135,7 @@ Jenkins
                 from: "mooazsayyedbiz@gmail.com",
                 recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 replyTo: "sayyedmooaz@gmail.com",
-                usernamePassword(credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS')
+                usernamePassword: [credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS']
             )
         }
         failure {
@@ -154,7 +154,7 @@ Mooaz
                 from: "mooazsayyedbiz@gmail.com",
                 recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 replyTo: "sayyedmooaz@gmail.com",
-                usernamePassword(credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS')
+                usernamePassword: [credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS']
             )
         }
     }
