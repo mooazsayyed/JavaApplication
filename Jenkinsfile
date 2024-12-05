@@ -92,10 +92,7 @@ pipeline {
                             sed -i 's|image: .*|image: ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}|g' k8s/deployment.yaml
                             git add k8s/deployment.yaml
                             git commit -m "Update deployment image to version ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}" || echo "No changes to commit"
-                            git stash
-                            git pull --rebase https://${GITHUB_TOKEN}@github.com/mooazsayyed/git-ops-repo-for-java main
-                            git stash pop || echo "No stash to apply"
-                            git push https://${GITHUB_TOKEN}@github.com/mooazsayyed/git-ops-repo-for-java main
+                            git push https://${GITHUB_TOKEN}@github.com/mooazsayyed/gitops-javaapplication.git main
                         """
                     }
                 }
