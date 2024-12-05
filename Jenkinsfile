@@ -77,7 +77,7 @@ pipeline {
                         trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${IMAGE_NAME} || true
                     """
                 }
-                // Archive the report as an artifact
+                // Archive the Trivy report as an artifact
                 archiveArtifacts artifacts: 'trivy-report.json', allowEmptyArchive: true
             }
         }
@@ -131,7 +131,11 @@ The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has completed succ
 Regards,
 Jenkins
 """,
-                mimeType: 'text/html'
+                mimeType: 'text/html',
+                from: "mooazsayyedbiz@gmail.com", // Optional: Specify a custom 'from' address if needed
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']], // Optional: Specify who to send the email to
+                replyTo: "sayyedmooaz@gmail.com", // Optional: Specify the reply-to email
+                credentialsId: 'gmail-credentials'  // Specify the credentialsId here
             )
         }
         failure {
@@ -146,8 +150,15 @@ The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. Please
 Regards,
 Mooaz
 """,
-                mimeType: 'text/html'
+                mimeType: 'text/html',
+                from: "mooazsayyedbiz@gmail.com", // Optional: Specify a custom 'from' address if needed
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']], // Optional: Specify who to send the email to
+                replyTo: "sayyedmooaz@gmail.com", // Optional: Specify the reply-to email
+                credentialsId: 'gmail-credentials'  // Specify the credentialsId here
             )
+        }
+        always {
+            archiveArtifacts artifacts: 'sonar-report.json', allowEmptyArchive: true
         }
     }
 }
