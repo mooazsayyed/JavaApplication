@@ -73,14 +73,13 @@ pipeline {
             GIT_USER_NAME = "mooazsayyed"
         }
         steps {
-            withCredentials([string(credentialsId: 'github')]) {
+            withCredentials([string(credentialsId: 'github1', variable:'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email "sam2221195@sicsr.ac.in"
                     git config user.name "mooazsayyed"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g'  java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-                    git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g'  k8s/deployment.yaml
+                    git add deployment.yml
+                    git commit -m "Update deployment image to version ${IMAGE_NAME}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
