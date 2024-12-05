@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     echo "Running SonarQube quality gate..........................."
-                    waitForQualityGate abortPipeline: false
+                    waitForQualityGate abortPipeline: True, credentialsId: 'jenkins-sonarqube-token'
                 }
             }
         }
