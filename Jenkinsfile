@@ -73,17 +73,16 @@ pipeline {
                 GIT_REPO_NAME = "JavaApplication"
                 GIT_USER_NAME = "mooazsayyed"
             }
-            steps {
-                withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
-                    sh '''
-                        git config user.email "sam2221195@sicsr.ac.in"
-                        git config user.name "mooazsayyed"
-                        sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
-                        git add k8s/deployment.yaml
-                        git commit -m "Update deployment image to version ${IMAGE_NAME}"
-                        git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
-                    '''
-                }
+             script {
+                // Use double quotes **"** to interpolate variables
+                sh """
+                    git config user.email "sam2221195@sicsr.ac.in"
+                    git config user.name "mooazsayyed"
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
+                    git add k8s/deployment.yaml
+                    git commit -m "Update deployment image to version ${IMAGE_NAME}"
+                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                """
             }
         }
         stage("Sync with ArgoCD") {
