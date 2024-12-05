@@ -9,9 +9,7 @@ pipeline {
     environment {
         APP_NAME = "java-application"
         RELEASE = "1.0.0"
-        BUILD_NUMBER = "${env.BUILD_NUMBER}"
         DOCKER_USER = "mooaz"
-        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
         ARGOCD_SERVER = "13.202.1.32:30102" // Replace with ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
@@ -46,6 +44,7 @@ pipeline {
                     echo "Running SonarQube analysis..........................."
                     withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
+                        archiveArtifacts artifacts: 'sonar-report/**/*', allowEmptyArchive: true
                     }
                 }
             }
@@ -61,10 +60,11 @@ pipeline {
         stage("Docker Build and Push") {
             steps {
                 script {
+                    def imageName = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
                     echo "Building and pushing the Docker image..........................."
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                        sh "docker build -t ${IMAGE_NAME} ."
-                        sh "docker push ${IMAGE_NAME}"
+                        sh "docker build -t ${imageName} ."
+                        sh "docker push ${imageName}"
                     }
                 }
             }
@@ -72,20 +72,16 @@ pipeline {
         stage("Trivy Scan") {
             steps {
                 script {
+                    def imageName = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
                     echo "Scanning Docker image for vulnerabilities..........................."
                     sh """
-                        trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${IMAGE_NAME} || true
+                        trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${imageName} || true
                     """
                 }
-                // Archive the Trivy report as an artifact
                 archiveArtifacts artifacts: 'trivy-report.json', allowEmptyArchive: true
             }
         }
         stage("Update Deployment File") {
-            environment {
-                GIT_REPO_NAME = "JavaApplication"
-                GIT_USER_NAME = "mooazsayyed"
-            }
             steps {
                 withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
                     script {
@@ -93,25 +89,22 @@ pipeline {
                         sh """
                             git config user.email "sam2221195@sicsr.ac.in"
                             git config user.name "mooazsayyed"
-                            sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
+                            sed -i 's|image: .*|image: ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}|g' k8s/deployment.yaml
                             git add k8s/deployment.yaml
-                            git commit -m "Update deployment image to version ${IMAGE_NAME}"
-                            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                            git commit -m "Update deployment image to version ${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
+                            git push https://${GITHUB_TOKEN}@github.com/mooazsayyed/JavaApplication main
                         """
                     }
                 }
             }
         }
         stage("Sync with ArgoCD") {
-            environment {
-                ARGOCD_PASSWORD = credentials('argocd-credentials')
-            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'argocd-credentials', usernameVariable: 'ARGOCD_USERNAME', passwordVariable: 'ARGOCD_PASSWORD')]) {
                     script {
                         echo "Synchronizing with ArgoCD..........................."
                         sh """
-                            argocd login ${env.ARGOCD_SERVER} --username ${env.ARGOCD_USERNAME} --password ${env.ARGOCD_PASSWORD} --insecure
+                            argocd login ${ARGOCD_SERVER} --username ${ARGOCD_USERNAME} --password ${ARGOCD_PASSWORD} --insecure
                         """
                     }
                 }
@@ -119,42 +112,12 @@ pipeline {
         }
     }
     post {
-        success {
-            emailext(
-                to: "sayyedmooaz@gmail.com",
-                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
-                body: """
-Hi,
-
-The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has completed successfully.
-
-Regards,
-Jenkins
-""",
-                mimeType: 'text/html',
-                from: "mooazsayyedbiz@gmail.com",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                replyTo: "sayyedmooaz@gmail.com",
-                usernamePassword: [credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS']
-            )
-        }
-        failure {
-            emailext(
-                to: "sayyedmooaz@gmail.com",
-                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
-                body: """
-Hi,
-
-The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. Please check the logs.
-
-Regards,
-Mooaz
-""",
-                mimeType: 'text/html',
-                from: "mooazsayyedbiz@gmail.com",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                replyTo: "sayyedmooaz@gmail.com",
-                usernamePassword: [credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS']
+        always {
+            emailext (
+                subject: 'Build Notification',
+                body: 'The build is complete.',
+                to: 'sayyedmoaoz@gmail.com',
+                attachmentsPattern: '**/*.log'
             )
         }
     }
