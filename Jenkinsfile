@@ -92,7 +92,7 @@ pipeline {
                                 sed -i 's|image: .*|image: mooaz/java-application:1.0.0-86|g' k8s/deployment.yaml
                                 git add k8s/deployment.yaml
                                 git commit -m "Update deployment image to version mooaz/java-application:1.0.0-86"
-                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/gitops-javaapplication.git main
+                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/JavaApplication.git main
                             """
 
                     }
