@@ -1,5 +1,5 @@
-**CI/CD Pipeline with Jenkins, SonarQube, ArgoCD, and Monitoring
-**This project demonstrates a robust CI/CD pipeline leveraging Jenkins, SonarQube, ArgoCD to deploy on kubernetes cluster, and monitoring tools like Prometheus and Grafana.
+# **CI/CD Pipeline with Jenkins, SonarQube, ArgoCD, and Monitoring**
+This project demonstrates a robust CI/CD pipeline leveraging Jenkins, SonarQube, ArgoCD to deploy on kubernetes cluster, and monitoring tools like Prometheus and Grafana.
 
 **Project Overview
 **
