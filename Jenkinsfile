@@ -8,6 +8,7 @@ pipeline {
     }
     environment {
         APP_NAME = "java-application"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
         RELEASE = "1.0.0"
         DOCKER_USER = "mooaz"
         ARGOCD_SERVER = "13.202.1.32:30102" // Replace with ArgoCD URL
@@ -60,11 +61,10 @@ pipeline {
         stage("Docker Build and Push") {
             steps {
                 script {
-                    def imageName = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
                     echo "Building and pushing the Docker image..........................."
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                        sh "docker build -t ${imageName} ."
-                        sh "docker push ${imageName}"
+                        sh "docker build -t ${IMAGE_NAME} ."
+                        sh "docker push ${IMAGE_NAME}"
                     }
                 }
             }
@@ -72,10 +72,9 @@ pipeline {
         stage("Trivy Scan") {
             steps {
                 script {
-                    def imageName = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
                     echo "Scanning Docker image for vulnerabilities..........................."
                     sh """
-                        trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${imageName} || true
+                        trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${IMAGE_NAME} || true
                     """
                 }
                 archiveArtifacts artifacts: 'trivy-report.json', allowEmptyArchive: true
