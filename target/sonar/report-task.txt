@@ -2,5 +2,5 @@ projectKey=com.dmancloud.dinesh:demoapp
 serverUrl=http://13.91.58.68:9000
 serverVersion=9.9.0.65466
 dashboardUrl=http://13.91.58.68:9000/dashboard?id=com.dmancloud.dinesh%3Ademoapp
-ceTaskId=AZOXpy1OHagYNx-Y2Qv2
-ceTaskUrl=http://13.91.58.68:9000/api/ce/task?id=AZOXpy1OHagYNx-Y2Qv2
+ceTaskId=AZOXtcC3HagYNx-Y2Qv3
+ceTaskUrl=http://13.91.58.68:9000/api/ce/task?id=AZOXtcC3HagYNx-Y2Qv3
