@@ -4,7 +4,7 @@
 **Project Overview
 **
 **Architecture**
-**Jenkins UI**: Hosted on an EC2 instance.
+**Jenkins UI**: Hosted on an EC2 instance.<br>
 ****Jenkins** Agent**: Deployed on Azure to execute build and deployment tasks.
 **SonarQube**: Code quality and security scanner hosted on Azure.
 **ArgoCD**: GitOps-based continuous deployment tool hosted on Azure deploys on the Kubernetes cluster.
