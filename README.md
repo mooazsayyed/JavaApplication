@@ -7,9 +7,8 @@ This project demonstrates a robust CI/CD pipeline leveraging Jenkins, SonarQube,
 ****Jenkins** Agent**: Deployed on Azure to execute build and deployment tasks.<br>
 **SonarQube**: Code quality and security scanner hosted on Azure.<br>
 **ArgoCD**: GitOps-based continuous deployment tool hosted on Azure deploys on the Kubernetes cluster.<br>
-Prometheus & Grafana: Both hosted on the EC2 instance alongside Jenkins for system monitoring and visualization.<br>
-**Key Features
-**
+**Prometheus & Grafana**: Both hosted on the EC2 instance alongside Jenkins for system monitoring and visualization.<br>
+**Key Features**
 Automated build, test, and deploy pipeline.
 Static code analysis using SonarQube.
 Container vulnerability scanning with Trivy.
