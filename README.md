@@ -5,18 +5,20 @@
 **
 **Architecture**
 **Jenkins UI**: Hosted on an EC2 instance.<br>
-****Jenkins** Agent**: Deployed on Azure to execute build and deployment tasks.
-**SonarQube**: Code quality and security scanner hosted on Azure.
-**ArgoCD**: GitOps-based continuous deployment tool hosted on Azure deploys on the Kubernetes cluster.
-Prometheus & Grafana: Both hosted on the EC2 instance alongside Jenkins for system monitoring and visualization.
+****Jenkins** Agent**: Deployed on Azure to execute build and deployment tasks.<br>
+**SonarQube**: Code quality and security scanner hosted on Azure.<br>
+**ArgoCD**: GitOps-based continuous deployment tool hosted on Azure deploys on the Kubernetes cluster.<br>
+Prometheus & Grafana: Both hosted on the EC2 instance alongside Jenkins for system monitoring and visualization.<br>
 **Key Features
-**Automated build, test, and deploy pipeline.
+**
+Automated build, test, and deploy pipeline.
 Static code analysis using SonarQube.
 Container vulnerability scanning with Trivy.
 Continuous deployment with ArgoCD.
 Real-time monitoring and dashboards using Prometheus and Grafana.
-Setup Instructions
-1. Jenkins
+
+**Setup Instructions
+**1. Jenkins
 Installation: Jenkins is deployed on an EC2 instance.
 Plugins: Ensure the following plugins are installed:
 Git
