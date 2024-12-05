@@ -1,2 +1,5 @@
-#Mooaz Sayyed Craeted this pipeline
+Mooaz Sayyed Craeted this pipeline
 
+Commit
+Check
+Masive check
