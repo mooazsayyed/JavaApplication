@@ -12,7 +12,7 @@ pipeline {
         BUILD_NUMBER = "${env.BUILD_NUMBER}"
         DOCKER_USER = "mooaz"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
-        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with your ArgoCD URL
+        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with  ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
     stages {
