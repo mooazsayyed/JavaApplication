@@ -39,7 +39,7 @@ Real-time monitoring and dashboards using Prometheus and Grafana.<br>
 - **Integration**: Add SonarQube server details and authentication token in Jenkins global configuration.
 
 ### 3. **ArgoCD/Kubernetes**
-- **Installation**: Hosted on Azure Kubernetes Service (AKS).
+- **Installation**: Hosted on VM(Kind Cluster).
 - **Configuration**:
   - Log in using the ArgoCD CLI in Jenkins pipeline steps.
   - Set up a Kubernetes cluster connection for deployments.
