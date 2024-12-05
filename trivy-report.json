@@ -1,0 +1,2209 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2024-12-05T15:44:00.164212846Z",
+  "ArtifactName": "mooaz/java-application:1.0.0-91",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "ubuntu",
+      "Name": "22.04"
+    },
+    "ImageID": "sha256:b0be9ec9e9733c7eb8b250bab042d09e489264b0ed536000f5db0c3ab63587f3",
+    "DiffIDs": [
+      "sha256:b93c1bd012ab8fda60f5b4f5906bf244586e0e3292d84571d3abb56472248466",
+      "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9",
+      "sha256:c6813289044b303da2684eb9ad4bb63cd304572a158f19e38cb45fb911c3e14d",
+      "sha256:47a0b225116f1b451e8e86f992b3e91dc23c96b0a50cacfdf994e87d151fdda9",
+      "sha256:c84c0d860e76d42000026395860c31a40970dd2bf61f28a8dcb783d3feaba746",
+      "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+    ],
+    "RepoTags": [
+      "mooaz/java-application:1.0.0-91"
+    ],
+    "RepoDigests": [
+      "mooaz/java-application@sha256:9fda4b4a52fb942d15a49518771764afdc7a725fea1719947ffd3e4918d0b8e4"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2024-12-05T15:43:16.835663057Z",
+      "history": [
+        {
+          "created": "2023-03-08T04:44:25Z",
+          "created_by": "/bin/sh -c #(nop)  ARG RELEASE",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-08T04:44:25Z",
+          "created_by": "/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-08T04:44:25Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-08T04:44:25Z",
+          "created_by": "/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=22.04",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-08T04:44:27Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:c8ef6447752cab2541ffca9e3cfa27d581f3491bc8f356f6eafd951243609341 in / "
+        },
+        {
+          "created": "2023-03-08T04:44:27Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/bash\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-16T02:44:03Z",
+          "created_by": "/bin/sh -c #(nop)  ENV JAVA_HOME=/opt/java/openjdk",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-16T02:44:03Z",
+          "created_by": "/bin/sh -c #(nop)  ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-16T02:44:04Z",
+          "created_by": "/bin/sh -c #(nop)  ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-16T02:46:48Z",
+          "created_by": "/bin/sh -c apt-get update     \u0026\u0026 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl wget ca-certificates fontconfig locales binutils     \u0026\u0026 echo \"en_US.UTF-8 UTF-8\" \u003e\u003e /etc/locale.gen     \u0026\u0026 locale-gen en_US.UTF-8     \u0026\u0026 rm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2023-03-16T02:46:48Z",
+          "created_by": "/bin/sh -c #(nop)  ENV JAVA_VERSION=jdk-17.0.6+10",
+          "empty_layer": true
+        },
+        {
+          "created": "2023-03-16T02:46:57Z",
+          "created_by": "/bin/sh -c set -eux;     ARCH=\"$(dpkg --print-architecture)\";     case \"${ARCH}\" in        aarch64|arm64)          ESUM='9e0e88bbd9fa662567d0c1e22d469268c68ac078e9e5fe5a7244f56fec71f55f';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6%2B10/OpenJDK17U-jdk_aarch64_linux_hotspot_17.0.6_10.tar.gz';          ;;        armhf|arm)          ESUM='fe4d0c6d5bb8cf7f59f7ff82c0c1fd988bbe5cccf3bc7377dc8ae50740b46c82';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6%2B10/OpenJDK17U-jdk_arm_linux_hotspot_17.0.6_10.tar.gz';          ;;        ppc64el|powerpc:common64)          ESUM='cb772c3fdf3f9fed56f23a37472acf2b80de20a7113fe09933891c6ef0ecde95';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6%2B10/OpenJDK17U-jdk_ppc64le_linux_hotspot_17.0.6_10.tar.gz';          ;;        s390x|s390:64-bit)          ESUM='32e53321dd3e724e111e5445fbdcbcefde893e59055cc1f102d20fa3bb62ccc3';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6%2B10/OpenJDK17U-jdk_s390x_linux_hotspot_17.0.6_10.tar.gz';          ;;        amd64|i386:x86-64)          ESUM='a0b1b9dd809d51a438f5fa08918f9aca7b2135721097f0858cf29f77a35d4289';          BINARY_URL='https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6%2B10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac; \t  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; \t  echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -; \t  mkdir -p \"$JAVA_HOME\"; \t  tar --extract \t      --file /tmp/openjdk.tar.gz \t      --directory \"$JAVA_HOME\" \t      --strip-components 1 \t      --no-same-owner \t  ;     rm -f /tmp/openjdk.tar.gz ${JAVA_HOME}/src.zip;     find \"$JAVA_HOME/lib\" -name '*.so' -exec dirname '{}' ';' | sort -u \u003e /etc/ld.so.conf.d/docker-openjdk.conf;     ldconfig;     java -Xshare:dump;"
+        },
+        {
+          "created": "2023-03-16T02:46:59Z",
+          "created_by": "/bin/sh -c echo Verifying install ...     \u0026\u0026 fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java     \u0026\u0026 echo javac --version \u0026\u0026 javac --version     \u0026\u0026 echo java --version \u0026\u0026 java --version     \u0026\u0026 echo Complete."
+        },
+        {
+          "created": "2023-03-16T02:46:59Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"jshell\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-03T09:49:12Z",
+          "created_by": "WORKDIR /app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-05T15:43:16Z",
+          "created_by": "COPY /app/target/demoapp.jar /app/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2024-12-05T15:43:16Z",
+          "created_by": "EXPOSE map[8080/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2024-12-05T15:43:16Z",
+          "created_by": "CMD [\"java\" \"-jar\" \"demoapp.jar\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:b93c1bd012ab8fda60f5b4f5906bf244586e0e3292d84571d3abb56472248466",
+          "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9",
+          "sha256:c6813289044b303da2684eb9ad4bb63cd304572a158f19e38cb45fb911c3e14d",
+          "sha256:47a0b225116f1b451e8e86f992b3e91dc23c96b0a50cacfdf994e87d151fdda9",
+          "sha256:c84c0d860e76d42000026395860c31a40970dd2bf61f28a8dcb783d3feaba746",
+          "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "java",
+          "-jar",
+          "demoapp.jar"
+        ],
+        "Env": [
+          "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "JAVA_HOME=/opt/java/openjdk",
+          "LANG=en_US.UTF-8",
+          "LANGUAGE=en_US:en",
+          "LC_ALL=en_US.UTF-8",
+          "JAVA_VERSION=jdk-17.0.6+10"
+        ],
+        "Labels": {
+          "org.opencontainers.image.ref.name": "ubuntu",
+          "org.opencontainers.image.version": "22.04"
+        },
+        "WorkingDir": "/app",
+        "ArgsEscaped": true
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "mooaz/java-application:1.0.0-91 (ubuntu 22.04)",
+      "Class": "os-pkgs",
+      "Type": "ubuntu",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-38545",
+          "PkgID": "curl@7.81.0-1ubuntu1.8",
+          "PkgName": "curl",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/curl@7.81.0-1ubuntu1.8?arch=amd64\u0026distro=ubuntu-22.04",
+            "UID": "f901efaebbca1a57"
+          },
+          "InstalledVersion": "7.81.0-1ubuntu1.8",
+          "FixedVersion": "7.81.0-1ubuntu1.14",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-38545",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "curl: heap based buffer overflow in the SOCKS5 proxy handshake",
+          "Description": "This flaw makes curl overflow a heap based buffer in the SOCKS5 proxy\nhandshake.\n\nWhen curl is asked to pass along the host name to the SOCKS5 proxy to allow\nthat to resolve the address instead of it getting done by curl itself, the\nmaximum length that host name can be is 255 bytes.\n\nIf the host name is detected to be longer, curl switches to local name\nresolving and instead passes on the resolved address only. Due to this bug,\nthe local variable that means \"let the host resolve the name\" could get the\nwrong value during a slow SOCKS5 handshake, and contrary to the intention,\ncopy the too long host name to the target buffer instead of copying just the\nresolved address there.\n\nThe target buffer being a heap based buffer, and the host name coming from the\nURL that curl has been told to operate with.\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-787"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 4,
+            "cbl-mariner": 4,
+            "nvd": 4,
+            "oracle-oval": 3,
+            "photon": 4,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "http://seclists.org/fulldisclosure/2024/Jan/34",
+            "http://seclists.org/fulldisclosure/2024/Jan/37",
+            "http://seclists.org/fulldisclosure/2024/Jan/38",
+            "https://access.redhat.com/errata/RHSA-2023:6745",
+            "https://access.redhat.com/security/cve/CVE-2023-38545",
+            "https://bugzilla.redhat.com/2241933",
+            "https://bugzilla.redhat.com/2241938",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2241933",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2241938",
+            "https://curl.se/docs/CVE-2023-38545.html",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38545",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38546",
+            "https://errata.almalinux.org/9/ALSA-2023-6745.html",
+            "https://errata.rockylinux.org/RLSA-2023:5763",
+            "https://forum.vmssoftware.com/viewtopic.php?f=8\u0026t=8868",
+            "https://linux.oracle.com/cve/CVE-2023-38545.html",
+            "https://linux.oracle.com/errata/ELSA-2023-6745.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OGMXNRNSJ4ETDK6FRNU3J7SABXPWCHSQ/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-38545",
+            "https://security.netapp.com/advisory/ntap-20231027-0009/",
+            "https://security.netapp.com/advisory/ntap-20240201-0005/",
+            "https://support.apple.com/kb/HT214036",
+            "https://support.apple.com/kb/HT214057",
+            "https://support.apple.com/kb/HT214058",
+            "https://support.apple.com/kb/HT214063",
+            "https://ubuntu.com/security/notices/USN-6429-1",
+            "https://ubuntu.com/security/notices/USN-6429-3",
+            "https://www.cve.org/CVERecord?id=CVE-2023-38545",
+            "https://www.secpod.com/blog/high-severity-heap-buffer-overflow-vulnerability/"
+          ],
+          "PublishedDate": "2023-10-18T04:15:11.077Z",
+          "LastModifiedDate": "2024-10-17T22:35:00.73Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-4911",
+          "PkgID": "libc-bin@2.35-0ubuntu3.1",
+          "PkgName": "libc-bin",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/libc-bin@2.35-0ubuntu3.1?arch=amd64\u0026distro=ubuntu-22.04",
+            "UID": "ddd8c094063c47ab"
+          },
+          "InstalledVersion": "2.35-0ubuntu3.1",
+          "FixedVersion": "2.35-0ubuntu3.4",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:b93c1bd012ab8fda60f5b4f5906bf244586e0e3292d84571d3abb56472248466"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-4911",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "glibc: buffer overflow in ld.so leading to privilege escalation",
+          "Description": "A buffer overflow was discovered in the GNU C Library's dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-787",
+            "CWE-122"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:5453",
+            "https://access.redhat.com/errata/RHSA-2023:5454",
+            "https://access.redhat.com/errata/RHSA-2023:5455",
+            "https://access.redhat.com/errata/RHSA-2023:5476",
+            "https://access.redhat.com/errata/RHSA-2024:0033",
+            "https://access.redhat.com/security/cve/CVE-2023-4911",
+            "https://bugzilla.redhat.com/2234712",
+            "https://bugzilla.redhat.com/2237782",
+            "https://bugzilla.redhat.com/2237798",
+            "https://bugzilla.redhat.com/2238352",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2234712",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237782",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237798",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2238352",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4527",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4806",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4813",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4911",
+            "https://errata.almalinux.org/9/ALSA-2023-5453.html",
+            "https://errata.rockylinux.org/RLSA-2023:5455",
+            "https://linux.oracle.com/cve/CVE-2023-4911.html",
+            "https://linux.oracle.com/errata/ELSA-2023-5455.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-4911",
+            "https://ubuntu.com/security/notices/USN-6409-1",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2023-4911",
+            "https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt",
+            "https://www.qualys.com/cve-2023-4911/"
+          ],
+          "PublishedDate": "2023-10-03T18:15:10.463Z",
+          "LastModifiedDate": "2024-09-17T19:46:45.837Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-4911",
+          "PkgID": "libc6@2.35-0ubuntu3.1",
+          "PkgName": "libc6",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/libc6@2.35-0ubuntu3.1?arch=amd64\u0026distro=ubuntu-22.04",
+            "UID": "a5a9206f40e7aa4"
+          },
+          "InstalledVersion": "2.35-0ubuntu3.1",
+          "FixedVersion": "2.35-0ubuntu3.4",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:b93c1bd012ab8fda60f5b4f5906bf244586e0e3292d84571d3abb56472248466"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-4911",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "glibc: buffer overflow in ld.so leading to privilege escalation",
+          "Description": "A buffer overflow was discovered in the GNU C Library's dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-787",
+            "CWE-122"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:5453",
+            "https://access.redhat.com/errata/RHSA-2023:5454",
+            "https://access.redhat.com/errata/RHSA-2023:5455",
+            "https://access.redhat.com/errata/RHSA-2023:5476",
+            "https://access.redhat.com/errata/RHSA-2024:0033",
+            "https://access.redhat.com/security/cve/CVE-2023-4911",
+            "https://bugzilla.redhat.com/2234712",
+            "https://bugzilla.redhat.com/2237782",
+            "https://bugzilla.redhat.com/2237798",
+            "https://bugzilla.redhat.com/2238352",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2234712",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237782",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237798",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2238352",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4527",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4806",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4813",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4911",
+            "https://errata.almalinux.org/9/ALSA-2023-5453.html",
+            "https://errata.rockylinux.org/RLSA-2023:5455",
+            "https://linux.oracle.com/cve/CVE-2023-4911.html",
+            "https://linux.oracle.com/errata/ELSA-2023-5455.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-4911",
+            "https://ubuntu.com/security/notices/USN-6409-1",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2023-4911",
+            "https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt",
+            "https://www.qualys.com/cve-2023-4911/"
+          ],
+          "PublishedDate": "2023-10-03T18:15:10.463Z",
+          "LastModifiedDate": "2024-09-17T19:46:45.837Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-38545",
+          "PkgID": "libcurl4@7.81.0-1ubuntu1.8",
+          "PkgName": "libcurl4",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/libcurl4@7.81.0-1ubuntu1.8?arch=amd64\u0026distro=ubuntu-22.04",
+            "UID": "9096b4e503733f2f"
+          },
+          "InstalledVersion": "7.81.0-1ubuntu1.8",
+          "FixedVersion": "7.81.0-1ubuntu1.14",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-38545",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "curl: heap based buffer overflow in the SOCKS5 proxy handshake",
+          "Description": "This flaw makes curl overflow a heap based buffer in the SOCKS5 proxy\nhandshake.\n\nWhen curl is asked to pass along the host name to the SOCKS5 proxy to allow\nthat to resolve the address instead of it getting done by curl itself, the\nmaximum length that host name can be is 255 bytes.\n\nIf the host name is detected to be longer, curl switches to local name\nresolving and instead passes on the resolved address only. Due to this bug,\nthe local variable that means \"let the host resolve the name\" could get the\nwrong value during a slow SOCKS5 handshake, and contrary to the intention,\ncopy the too long host name to the target buffer instead of copying just the\nresolved address there.\n\nThe target buffer being a heap based buffer, and the host name coming from the\nURL that curl has been told to operate with.\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-787"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 4,
+            "cbl-mariner": 4,
+            "nvd": 4,
+            "oracle-oval": 3,
+            "photon": 4,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "http://seclists.org/fulldisclosure/2024/Jan/34",
+            "http://seclists.org/fulldisclosure/2024/Jan/37",
+            "http://seclists.org/fulldisclosure/2024/Jan/38",
+            "https://access.redhat.com/errata/RHSA-2023:6745",
+            "https://access.redhat.com/security/cve/CVE-2023-38545",
+            "https://bugzilla.redhat.com/2241933",
+            "https://bugzilla.redhat.com/2241938",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2241933",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2241938",
+            "https://curl.se/docs/CVE-2023-38545.html",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38545",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38546",
+            "https://errata.almalinux.org/9/ALSA-2023-6745.html",
+            "https://errata.rockylinux.org/RLSA-2023:5763",
+            "https://forum.vmssoftware.com/viewtopic.php?f=8\u0026t=8868",
+            "https://linux.oracle.com/cve/CVE-2023-38545.html",
+            "https://linux.oracle.com/errata/ELSA-2023-6745.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OGMXNRNSJ4ETDK6FRNU3J7SABXPWCHSQ/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-38545",
+            "https://security.netapp.com/advisory/ntap-20231027-0009/",
+            "https://security.netapp.com/advisory/ntap-20240201-0005/",
+            "https://support.apple.com/kb/HT214036",
+            "https://support.apple.com/kb/HT214057",
+            "https://support.apple.com/kb/HT214058",
+            "https://support.apple.com/kb/HT214063",
+            "https://ubuntu.com/security/notices/USN-6429-1",
+            "https://ubuntu.com/security/notices/USN-6429-3",
+            "https://www.cve.org/CVERecord?id=CVE-2023-38545",
+            "https://www.secpod.com/blog/high-severity-heap-buffer-overflow-vulnerability/"
+          ],
+          "PublishedDate": "2023-10-18T04:15:11.077Z",
+          "LastModifiedDate": "2024-10-17T22:35:00.73Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-44487",
+          "PkgID": "libnghttp2-14@1.43.0-1build3",
+          "PkgName": "libnghttp2-14",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/libnghttp2-14@1.43.0-1build3?arch=amd64\u0026distro=ubuntu-22.04",
+            "UID": "631befce675dd987"
+          },
+          "InstalledVersion": "1.43.0-1build3",
+          "FixedVersion": "1.43.0-1ubuntu0.1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-44487",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "HTTP/2: Multiple HTTP/2 enabled web servers are vulnerable to a DDoS attack (Rapid Reset Attack)",
+          "Description": "The HTTP/2 protocol allows a denial of service (server resource consumption) because request cancellation can reset many streams quickly, as exploited in the wild in August through October 2023.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "ghsa": 2,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/10/13/4",
+            "http://www.openwall.com/lists/oss-security/2023/10/13/9",
+            "http://www.openwall.com/lists/oss-security/2023/10/18/4",
+            "http://www.openwall.com/lists/oss-security/2023/10/18/8",
+            "http://www.openwall.com/lists/oss-security/2023/10/19/6",
+            "http://www.openwall.com/lists/oss-security/2023/10/20/8",
+            "https://access.redhat.com/errata/RHSA-2023:6746",
+            "https://access.redhat.com/security/cve/CVE-2023-44487",
+            "https://access.redhat.com/security/cve/cve-2023-44487",
+            "https://akka.io/security/akka-http-cve-2023-44487.html",
+            "https://arstechnica.com/security/2023/10/how-ddosers-used-the-http-2-protocol-to-deliver-attacks-of-unprecedented-size",
+            "https://arstechnica.com/security/2023/10/how-ddosers-used-the-http-2-protocol-to-deliver-attacks-of-unprecedented-size/",
+            "https://aws.amazon.com/security/security-bulletins/AWS-2023-011",
+            "https://aws.amazon.com/security/security-bulletins/AWS-2023-011/",
+            "https://blog.cloudflare.com/technical-breakdown-http2-rapid-reset-ddos-attack",
+            "https://blog.cloudflare.com/technical-breakdown-http2-rapid-reset-ddos-attack/",
+            "https://blog.cloudflare.com/zero-day-rapid-reset-http2-record-breaking-ddos-attack",
+            "https://blog.cloudflare.com/zero-day-rapid-reset-http2-record-breaking-ddos-attack/",
+            "https://blog.litespeedtech.com/2023/10/11/rapid-reset-http-2-vulnerablilty",
+            "https://blog.litespeedtech.com/2023/10/11/rapid-reset-http-2-vulnerablilty/",
+            "https://blog.qualys.com/vulnerabilities-threat-research/2023/10/10/cve-2023-44487-http-2-rapid-reset-attack",
+            "https://blog.vespa.ai/cve-2023-44487",
+            "https://blog.vespa.ai/cve-2023-44487/",
+            "https://bugzilla.proxmox.com/show_bug.cgi?id=4988",
+            "https://bugzilla.redhat.com/2242803",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2242803",
+            "https://bugzilla.suse.com/show_bug.cgi?id=1216123",
+            "https://cgit.freebsd.org/ports/commit/?id=c64c329c2c1752f46b73e3e6ce9f4329be6629f9",
+            "https://chaos.social/@icing/111210915918780532",
+            "https://cloud.google.com/blog/products/identity-security/google-cloud-mitigated-largest-ddos-attack-peaking-above-398-million-rps",
+            "https://cloud.google.com/blog/products/identity-security/google-cloud-mitigated-largest-ddos-attack-peaking-above-398-million-rps/",
+            "https://cloud.google.com/blog/products/identity-security/how-it-works-the-novel-http2-rapid-reset-ddos-attack",
+            "https://community.traefik.io/t/is-traefik-vulnerable-to-cve-2023-44487/20125",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44487",
+            "https://devblogs.microsoft.com/dotnet/october-2023-updates/",
+            "https://discuss.hashicorp.com/t/hcsec-2023-32-vault-consul-and-boundary-affected-by-http-2-rapid-reset-denial-of-service-vulnerability-cve-2023-44487/59715",
+            "https://edg.io/lp/blog/resets-leaks-ddos-and-the-tale-of-a-hidden-cve",
+            "https://errata.almalinux.org/9/ALSA-2023-6746.html",
+            "https://errata.rockylinux.org/RLSA-2023:5838",
+            "https://forums.swift.org/t/swift-nio-http2-security-update-cve-2023-44487-http-2-dos/67764",
+            "https://gist.github.com/adulau/7c2bfb8e9cdbe4b35a5e131c66a0c088",
+            "https://github.com/Azure/AKS/issues/3947",
+            "https://github.com/Kong/kong/discussions/11741",
+            "https://github.com/advisories/GHSA-qppj-fm5r-hxr3",
+            "https://github.com/advisories/GHSA-vx74-f528-fxqg",
+            "https://github.com/advisories/GHSA-xpw8-rcwv-8f8p",
+            "https://github.com/akka/akka-http/issues/4323",
+            "https://github.com/akka/akka-http/pull/4324",
+            "https://github.com/akka/akka-http/pull/4325",
+            "https://github.com/alibaba/tengine/issues/1872",
+            "https://github.com/apache/apisix/issues/10320",
+            "https://github.com/apache/httpd-site/pull/10",
+            "https://github.com/apache/httpd/blob/afcdbeebbff4b0c50ea26cdd16e178c0d1f24152/modules/http2/h2_mplx.c#L1101-L1113",
+            "https://github.com/apache/tomcat/commit/944332bb15bd2f3bf76ec2caeb1ff0a58a3bc628",
+            "https://github.com/apache/tomcat/tree/main/java/org/apache/coyote/http2",
+            "https://github.com/apache/trafficserver/pull/10564",
+            "https://github.com/apple/swift-nio-http2",
+            "https://github.com/apple/swift-nio-http2/security/advisories/GHSA-qppj-fm5r-hxr3",
+            "https://github.com/arkrwn/PoC/tree/main/CVE-2023-44487",
+            "https://github.com/bcdannyboy/CVE-2023-44487",
+            "https://github.com/caddyserver/caddy/issues/5877",
+            "https://github.com/caddyserver/caddy/releases/tag/v2.7.5",
+            "https://github.com/dotnet/announcements/issues/277",
+            "https://github.com/dotnet/core/blob/e4613450ea0da7fd2fc6b61dfb2c1c1dec1ce9ec/release-notes/6.0/6.0.23/6.0.23.md?plain=1#L73",
+            "https://github.com/eclipse/jetty.project/issues/10679",
+            "https://github.com/envoyproxy/envoy/pull/30055",
+            "https://github.com/etcd-io/etcd/issues/16740",
+            "https://github.com/facebook/proxygen/pull/466",
+            "https://github.com/golang/go/issues/63417",
+            "https://github.com/grpc/grpc-go/pull/6703",
+            "https://github.com/grpc/grpc-go/releases",
+            "https://github.com/h2o/h2o/pull/3291",
+            "https://github.com/h2o/h2o/security/advisories/GHSA-2m7v-gc89-fjqf",
+            "https://github.com/haproxy/haproxy/issues/2312",
+            "https://github.com/hyperium/hyper/issues/3337",
+            "https://github.com/icing/mod_h2/blob/0a864782af0a942aa2ad4ed960a6b32cd35bcf0a/mod_http2/README.md?plain=1#L239-L244",
+            "https://github.com/junkurihara/rust-rpxy/issues/97",
+            "https://github.com/kazu-yamamoto/http2/commit/f61d41a502bd0f60eb24e1ce14edc7b6df6722a1",
+            "https://github.com/kazu-yamamoto/http2/issues/93",
+            "https://github.com/kubernetes/kubernetes/pull/121120",
+            "https://github.com/line/armeria/pull/5232",
+            "https://github.com/linkerd/website/pull/1695/commits/4b9c6836471bc8270ab48aae6fd2181bc73fd632",
+            "https://github.com/micrictor/http2-rst-stream",
+            "https://github.com/microsoft/CBL-Mariner/pull/6381",
+            "https://github.com/netty/netty/commit/58f75f665aa81a8cbcf6ffa74820042a285c5e61",
+            "https://github.com/nghttp2/nghttp2/pull/1961",
+            "https://github.com/nghttp2/nghttp2/releases/tag/v1.57.0",
+            "https://github.com/ninenines/cowboy/issues/1615",
+            "https://github.com/nodejs/node/pull/50121",
+            "https://github.com/openresty/openresty/issues/930",
+            "https://github.com/opensearch-project/data-prepper/issues/3474",
+            "https://github.com/oqtane/oqtane.framework/discussions/3367",
+            "https://github.com/projectcontour/contour/pull/5826",
+            "https://github.com/tempesta-tech/tempesta/issues/1986",
+            "https://github.com/varnishcache/varnish-cache/issues/3996",
+            "https://go.dev/cl/534215",
+            "https://go.dev/cl/534235",
+            "https://go.dev/issue/63417",
+            "https://groups.google.com/g/golang-announce/c/iNNxDTCjZvo",
+            "https://groups.google.com/g/golang-announce/c/iNNxDTCjZvo/m/UDd7VKQuAAAJ",
+            "https://istio.io/latest/news/security/istio-security-2023-004",
+            "https://istio.io/latest/news/security/istio-security-2023-004/",
+            "https://linkerd.io/2023/10/12/linkerd-cve-2023-44487",
+            "https://linkerd.io/2023/10/12/linkerd-cve-2023-44487/",
+            "https://linux.oracle.com/cve/CVE-2023-44487.html",
+            "https://linux.oracle.com/errata/ELSA-2024-1444.html",
+            "https://lists.apache.org/thread/5py8h42mxfsn8l1wy6o41xwhsjlsd87q",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00020.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00023.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00024.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00045.html",
+            "https://lists.debian.org/debian-lts-announce/2023/10/msg00047.html",
+            "https://lists.debian.org/debian-lts-announce/2023/11/msg00001.html",
+            "https://lists.debian.org/debian-lts-announce/2023/11/msg00012.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/2MBEPPC36UBVOZZNAXFHKLFGSLCMN5LI",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/2MBEPPC36UBVOZZNAXFHKLFGSLCMN5LI/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/3N4NJ7FR4X4FPZUGNTQAPSTVB2HB2Y4A",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/3N4NJ7FR4X4FPZUGNTQAPSTVB2HB2Y4A/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/BFQD3KUEMFBHPAPBGLWQC34L4OWL5HAZ",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/BFQD3KUEMFBHPAPBGLWQC34L4OWL5HAZ/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/CLB4TW7KALB3EEQWNWCN7OUIWWVWWCG2",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/CLB4TW7KALB3EEQWNWCN7OUIWWVWWCG2/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/E72T67UPDRXHIDLO3OROR25YAMN4GGW5",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/E72T67UPDRXHIDLO3OROR25YAMN4GGW5/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/FNA62Q767CFAFHBCDKYNPBMZWB7TWYVU",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/FNA62Q767CFAFHBCDKYNPBMZWB7TWYVU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HT7T2R4MQKLIF4ODV4BDLPARWFPCJ5CZ",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HT7T2R4MQKLIF4ODV4BDLPARWFPCJ5CZ/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JIZSEFC3YKCGABA2BZW6ZJRMDZJMB7PJ",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JIZSEFC3YKCGABA2BZW6ZJRMDZJMB7PJ/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JMEXY22BFG5Q64HQCM5CK2Q7KDKVV4TY",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JMEXY22BFG5Q64HQCM5CK2Q7KDKVV4TY/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KSEGD2IWKNUO3DWY4KQGUQM5BISRWHQE",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KSEGD2IWKNUO3DWY4KQGUQM5BISRWHQE/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LKYHSZQFDNR7RSA7LHVLLIAQMVYCUGBG",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LKYHSZQFDNR7RSA7LHVLLIAQMVYCUGBG/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LNMZJCDHGLJJLXO4OXWJMTVQRNWOC7UL",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LNMZJCDHGLJJLXO4OXWJMTVQRNWOC7UL/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/VHUHTSXLXGXS7JYKBXTA3VINUPHTNGVU",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/VHUHTSXLXGXS7JYKBXTA3VINUPHTNGVU/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/VSRDIV77HNKUSM7SJC5BKE5JSHLHU2NK",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/VSRDIV77HNKUSM7SJC5BKE5JSHLHU2NK/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WE2I52RHNNU42PX6NZ2RBUHSFFJ2LVZX",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WE2I52RHNNU42PX6NZ2RBUHSFFJ2LVZX/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WLPRQ5TWUQQXYWBJM7ECYDAIL2YVKIUH",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WLPRQ5TWUQQXYWBJM7ECYDAIL2YVKIUH/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/X6QXN4ORIVF6XBW4WWFE7VNPVC74S45Y",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/X6QXN4ORIVF6XBW4WWFE7VNPVC74S45Y/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XFOIBB4YFICHDM7IBOP7PWXW3FX4HLL2",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XFOIBB4YFICHDM7IBOP7PWXW3FX4HLL2/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZB43REMKRQR62NJEI7I5NQ4FSXNLBKRT",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZB43REMKRQR62NJEI7I5NQ4FSXNLBKRT/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZKQSIKIAT5TJ3WSLU3RDBQ35YX4GY4V3",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZKQSIKIAT5TJ3WSLU3RDBQ35YX4GY4V3/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZLU6U2R2IC2K64NDPNMV55AUAO65MAF4",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ZLU6U2R2IC2K64NDPNMV55AUAO65MAF4/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3N4NJ7FR4X4FPZUGNTQAPSTVB2HB2Y4A",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/BFQD3KUEMFBHPAPBGLWQC34L4OWL5HAZ",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/CLB4TW7KALB3EEQWNWCN7OUIWWVWWCG2",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/E72T67UPDRXHIDLO3OROR25YAMN4GGW5",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FNA62Q767CFAFHBCDKYNPBMZWB7TWYVU",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HT7T2R4MQKLIF4ODV4BDLPARWFPCJ5CZ",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JIZSEFC3YKCGABA2BZW6ZJRMDZJMB7PJ",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JMEXY22BFG5Q64HQCM5CK2Q7KDKVV4TY",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KSEGD2IWKNUO3DWY4KQGUQM5BISRWHQE",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/LKYHSZQFDNR7RSA7LHVLLIAQMVYCUGBG",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/LNMZJCDHGLJJLXO4OXWJMTVQRNWOC7UL",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VHUHTSXLXGXS7JYKBXTA3VINUPHTNGVU",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VSRDIV77HNKUSM7SJC5BKE5JSHLHU2NK",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WLPRQ5TWUQQXYWBJM7ECYDAIL2YVKIUH",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/X6QXN4ORIVF6XBW4WWFE7VNPVC74S45Y",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XFOIBB4YFICHDM7IBOP7PWXW3FX4HLL2",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZB43REMKRQR62NJEI7I5NQ4FSXNLBKRT",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZKQSIKIAT5TJ3WSLU3RDBQ35YX4GY4V3",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZLU6U2R2IC2K64NDPNMV55AUAO65MAF4",
+            "https://lists.w3.org/Archives/Public/ietf-http-wg/2023OctDec/0025.html",
+            "https://mailman.nginx.org/pipermail/nginx-devel/2023-October/S36Q5HBXR7CAIMPLLPRSSSYR4PCMWILK.html",
+            "https://martinthomson.github.io/h2-stream-limits/draft-thomson-httpbis-h2-stream-limits.html",
+            "https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2",
+            "https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/",
+            "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-44487",
+            "https://my.f5.com/manage/s/article/K000137106",
+            "https://netty.io/news/2023/10/10/4-1-100-Final.html",
+            "https://news.ycombinator.com/item?id=37830987",
+            "https://news.ycombinator.com/item?id=37830998",
+            "https://news.ycombinator.com/item?id=37831062",
+            "https://news.ycombinator.com/item?id=37837043",
+            "https://nodejs.org/en/blog/vulnerability/october-2023-security-releases",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-44487",
+            "https://openssf.org/blog/2023/10/10/http-2-rapid-reset-vulnerability-highlights-need-for-rapid-response",
+            "https://openssf.org/blog/2023/10/10/http-2-rapid-reset-vulnerability-highlights-need-for-rapid-response/",
+            "https://pkg.go.dev/vuln/GO-2023-2102",
+            "https://seanmonstar.com/post/730794151136935936/hyper-http2-rapid-reset-unaffected",
+            "https://security.gentoo.org/glsa/202311-09",
+            "https://security.netapp.com/advisory/ntap-20231016-0001",
+            "https://security.netapp.com/advisory/ntap-20231016-0001/",
+            "https://security.netapp.com/advisory/ntap-20240426-0007",
+            "https://security.netapp.com/advisory/ntap-20240426-0007/",
+            "https://security.netapp.com/advisory/ntap-20240621-0006",
+            "https://security.netapp.com/advisory/ntap-20240621-0006/",
+            "https://security.netapp.com/advisory/ntap-20240621-0007",
+            "https://security.netapp.com/advisory/ntap-20240621-0007/",
+            "https://security.paloaltonetworks.com/CVE-2023-44487",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.14",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.0-M12",
+            "https://tomcat.apache.org/security-8.html#Fixed_in_Apache_Tomcat_8.5.94",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.81",
+            "https://ubuntu.com/security/CVE-2023-44487",
+            "https://ubuntu.com/security/notices/USN-6427-1",
+            "https://ubuntu.com/security/notices/USN-6427-2",
+            "https://ubuntu.com/security/notices/USN-6438-1",
+            "https://ubuntu.com/security/notices/USN-6505-1",
+            "https://ubuntu.com/security/notices/USN-6574-1",
+            "https://ubuntu.com/security/notices/USN-6754-1",
+            "https://ubuntu.com/security/notices/USN-6994-1",
+            "https://ubuntu.com/security/notices/USN-7067-1",
+            "https://www.bleepingcomputer.com/news/security/new-http-2-rapid-reset-zero-day-attack-breaks-ddos-records",
+            "https://www.bleepingcomputer.com/news/security/new-http-2-rapid-reset-zero-day-attack-breaks-ddos-records/",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cisa.gov/news-events/alerts/2023/10/10/http2-rapid-reset-vulnerability-cve-2023-44487",
+            "https://www.cve.org/CVERecord?id=CVE-2023-44487",
+            "https://www.darkreading.com/cloud/internet-wide-zero-day-bug-fuels-largest-ever-ddos-event",
+            "https://www.debian.org/security/2023/dsa-5521",
+            "https://www.debian.org/security/2023/dsa-5522",
+            "https://www.debian.org/security/2023/dsa-5540",
+            "https://www.debian.org/security/2023/dsa-5549",
+            "https://www.debian.org/security/2023/dsa-5558",
+            "https://www.debian.org/security/2023/dsa-5570",
+            "https://www.eclipse.org/lists/jetty-announce/msg00181.html",
+            "https://www.haproxy.com/blog/haproxy-is-not-affected-by-the-http-2-rapid-reset-attack-cve-2023-44487",
+            "https://www.mail-archive.com/haproxy@formilux.org/msg44134.html",
+            "https://www.netlify.com/blog/netlify-successfully-mitigates-cve-2023-44487",
+            "https://www.netlify.com/blog/netlify-successfully-mitigates-cve-2023-44487/",
+            "https://www.nginx.com/blog/http-2-rapid-reset-attack-impacting-f5-nginx-products",
+            "https://www.nginx.com/blog/http-2-rapid-reset-attack-impacting-f5-nginx-products/",
+            "https://www.openwall.com/lists/oss-security/2023/10/10/6",
+            "https://www.phoronix.com/news/HTTP2-Rapid-Reset-Attack",
+            "https://www.theregister.com/2023/10/10/http2_rapid_reset_zeroday",
+            "https://www.theregister.com/2023/10/10/http2_rapid_reset_zeroday/"
+          ],
+          "PublishedDate": "2023-10-10T14:15:10.883Z",
+          "LastModifiedDate": "2024-08-14T19:57:18.86Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-4911",
+          "PkgID": "locales@2.35-0ubuntu3.1",
+          "PkgName": "locales",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/ubuntu/locales@2.35-0ubuntu3.1?arch=all\u0026distro=ubuntu-22.04",
+            "UID": "37c327fa868d1d94"
+          },
+          "InstalledVersion": "2.35-0ubuntu3.1",
+          "FixedVersion": "2.35-0ubuntu3.4",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:f3a12c51479f5537613108d441e6a91040c420d2abe9cf80c0c310fc03a0a7c9"
+          },
+          "SeveritySource": "ubuntu",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-4911",
+          "DataSource": {
+            "ID": "ubuntu",
+            "Name": "Ubuntu CVE Tracker",
+            "URL": "https://git.launchpad.net/ubuntu-cve-tracker"
+          },
+          "Title": "glibc: buffer overflow in ld.so leading to privilege escalation",
+          "Description": "A buffer overflow was discovered in the GNU C Library's dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue could allow a local attacker to use maliciously crafted GLIBC_TUNABLES environment variables when launching binaries with SUID permission to execute code with elevated privileges.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-787",
+            "CWE-122"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:5453",
+            "https://access.redhat.com/errata/RHSA-2023:5454",
+            "https://access.redhat.com/errata/RHSA-2023:5455",
+            "https://access.redhat.com/errata/RHSA-2023:5476",
+            "https://access.redhat.com/errata/RHSA-2024:0033",
+            "https://access.redhat.com/security/cve/CVE-2023-4911",
+            "https://bugzilla.redhat.com/2234712",
+            "https://bugzilla.redhat.com/2237782",
+            "https://bugzilla.redhat.com/2237798",
+            "https://bugzilla.redhat.com/2238352",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2234712",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237782",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2237798",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2238352",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4527",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4806",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4813",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4911",
+            "https://errata.almalinux.org/9/ALSA-2023-5453.html",
+            "https://errata.rockylinux.org/RLSA-2023:5455",
+            "https://linux.oracle.com/cve/CVE-2023-4911.html",
+            "https://linux.oracle.com/errata/ELSA-2023-5455.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-4911",
+            "https://ubuntu.com/security/notices/USN-6409-1",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2023-4911",
+            "https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt",
+            "https://www.qualys.com/cve-2023-4911/"
+          ],
+          "PublishedDate": "2023-10-03T18:15:10.463Z",
+          "LastModifiedDate": "2024-09-17T19:46:45.837Z"
+        }
+      ]
+    },
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-6378",
+          "PkgName": "ch.qos.logback:logback-classic",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/logback-classic-1.4.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-classic@1.4.5",
+            "UID": "d06b9ce3833079d1"
+          },
+          "InstalledVersion": "1.4.5",
+          "FixedVersion": "1.3.12, 1.4.12, 1.2.13",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-6378",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback: serialization vulnerability in logback receiver",
+          "Description": "A serialization vulnerability in logback receiver component part of \nlogback version 1.4.11 allows an attacker to mount a Denial-Of-Service \nattack by sending poisoned data.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+              "V3Score": 7.1
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-6378",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/9c782b45be4abdafb7e17481e24e7354c2acd1eb",
+            "https://github.com/qos-ch/logback/commit/b8eac23a9de9e05fb6d51160b3f46acd91af9731",
+            "https://github.com/qos-ch/logback/commit/bb095154be011267b64e37a1d401546e7cc2b7c3",
+            "https://github.com/qos-ch/logback/issues/745#issuecomment-1836227158",
+            "https://logback.qos.ch/manual/receivers.html",
+            "https://logback.qos.ch/news.html#1.2.13",
+            "https://logback.qos.ch/news.html#1.3.12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-6378",
+            "https://security.netapp.com/advisory/ntap-20241129-0012",
+            "https://security.netapp.com/advisory/ntap-20241129-0012/",
+            "https://www.cve.org/CVERecord?id=CVE-2023-6378"
+          ],
+          "PublishedDate": "2023-11-29T12:15:07.543Z",
+          "LastModifiedDate": "2024-11-29T12:15:06.597Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-6378",
+          "PkgName": "ch.qos.logback:logback-core",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/logback-core-1.4.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-core@1.4.5",
+            "UID": "98d81588ef5dc63d"
+          },
+          "InstalledVersion": "1.4.5",
+          "FixedVersion": "1.3.12, 1.4.12, 1.2.13",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-6378",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback: serialization vulnerability in logback receiver",
+          "Description": "A serialization vulnerability in logback receiver component part of \nlogback version 1.4.11 allows an attacker to mount a Denial-Of-Service \nattack by sending poisoned data.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+              "V3Score": 7.1
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-6378",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/9c782b45be4abdafb7e17481e24e7354c2acd1eb",
+            "https://github.com/qos-ch/logback/commit/b8eac23a9de9e05fb6d51160b3f46acd91af9731",
+            "https://github.com/qos-ch/logback/commit/bb095154be011267b64e37a1d401546e7cc2b7c3",
+            "https://github.com/qos-ch/logback/issues/745#issuecomment-1836227158",
+            "https://logback.qos.ch/manual/receivers.html",
+            "https://logback.qos.ch/news.html#1.2.13",
+            "https://logback.qos.ch/news.html#1.3.12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-6378",
+            "https://security.netapp.com/advisory/ntap-20241129-0012",
+            "https://security.netapp.com/advisory/ntap-20241129-0012/",
+            "https://www.cve.org/CVERecord?id=CVE-2023-6378"
+          ],
+          "PublishedDate": "2023-11-29T12:15:07.543Z",
+          "LastModifiedDate": "2024-11-29T12:15:06.597Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-45868",
+          "PkgName": "com.h2database:h2",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/h2-2.1.214.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/com.h2database/h2@2.1.214",
+            "UID": "fa850aab2474b8fc"
+          },
+          "InstalledVersion": "2.1.214",
+          "FixedVersion": "2.2.220",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-45868",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "The web-based admin console in H2 Database Engine before 2.2.220 can b ...",
+          "Description": "The web-based admin console in H2 Database Engine before 2.2.220 can be started via the CLI with the argument -webAdminPassword, which allows the user to specify the password in cleartext for the web admin console. Consequently, a local user (or an attacker that has obtained local access through some means) would be able to discover the password by listing processes and their arguments. NOTE: the vendor states \"This is not a vulnerability of H2 Console ... Passwords should never be passed on the command line and every qualified DBA or system administrator is expected to know that.\" Nonetheless, the issue was fixed in 2.2.220.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-312"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "https://github.com/advisories/GHSA-22wj-vf5f-wrvj",
+            "https://github.com/h2database/h2database",
+            "https://github.com/h2database/h2database/blob/96832bf5a97cdc0adc1f2066ed61c54990d66ab5/h2/src/main/org/h2/server/web/WebServer.java#L346-L347",
+            "https://github.com/h2database/h2database/commit/581ed18ff9d6b3761d851620ed88a3994a351a0d",
+            "https://github.com/h2database/h2database/issues/3686",
+            "https://github.com/h2database/h2database/pull/3833",
+            "https://github.com/h2database/h2database/releases/tag/version-2.2.220",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-45868",
+            "https://sites.google.com/sonatype.com/vulnerabilities/sonatype-2022-6243"
+          ],
+          "PublishedDate": "2022-11-23T21:15:11.36Z",
+          "LastModifiedDate": "2024-08-03T15:15:31.327Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2021-45105",
+          "PkgName": "org.apache.logging.log4j:log4j-core",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/log4j-core-2.16.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.logging.log4j/log4j-core@2.16.0",
+            "UID": "54f68ac757c2fa02"
+          },
+          "InstalledVersion": "2.16.0",
+          "FixedVersion": "2.12.3, 2.17.0, 2.3.1",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-45105",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "log4j-core: DoS in log4j 2.x with Thread Context Map (MDC) input data contains a recursive lookup and context lookup pattern",
+          "Description": "Apache Log4j2 versions 2.0-alpha1 through 2.16.0 (excluding 2.12.3 and 2.3.1) did not protect from uncontrolled recursion from self-referential lookups. This allows an attacker with control over Thread Context Map data to cause a denial of service when a crafted string is interpreted. This issue was fixed in Log4j 2.17.0, 2.12.3, and 2.3.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20",
+            "CWE-674"
+          ],
+          "VendorSeverity": {
+            "amazon": 4,
+            "ghsa": 3,
+            "nvd": 2,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+              "V3Score": 8.6
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V2Score": 4.3,
+              "V3Score": 5.9
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2021/12/19/1",
+            "https://access.redhat.com/security/cve/CVE-2021-45105",
+            "https://cert-portal.siemens.com/productcert/pdf/ssa-479842.pdf",
+            "https://cert-portal.siemens.com/productcert/pdf/ssa-501673.pdf",
+            "https://issues.apache.org/jira/browse/LOG4J2-3230",
+            "https://lists.debian.org/debian-lts-announce/2021/12/msg00017.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EOKPQGV24RRBBI4TBZUDQMM4MEH7MXCY",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SIG7FZULMNK2XF6FZRU4VWYDQXNMUGAJ",
+            "https://logging.apache.org/log4j/2.x/security.html",
+            "https://logging.apache.org/log4j/2.x/security.html#CVE-2021-45105",
+            "https://nvd.nist.gov/vuln/detail/CVE-2021-45105",
+            "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2021-0032",
+            "https://security.netapp.com/advisory/ntap-20211218-0001",
+            "https://security.netapp.com/advisory/ntap-20211218-0001/",
+            "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd",
+            "https://ubuntu.com/security/notices/USN-5203-1",
+            "https://ubuntu.com/security/notices/USN-5222-1",
+            "https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Log4Shell",
+            "https://www.cve.org/CVERecord?id=CVE-2021-45105",
+            "https://www.debian.org/security/2021/dsa-5024",
+            "https://www.kb.cert.org/vuls/id/930724",
+            "https://www.openwall.com/lists/oss-security/2021/12/19/1",
+            "https://www.oracle.com/security-alerts/cpuapr2022.html",
+            "https://www.oracle.com/security-alerts/cpujan2022.html",
+            "https://www.oracle.com/security-alerts/cpujul2022.html",
+            "https://www.zerodayinitiative.com/advisories/ZDI-21-1541",
+            "https://www.zerodayinitiative.com/advisories/ZDI-21-1541/"
+          ],
+          "PublishedDate": "2021-12-18T12:15:07.433Z",
+          "LastModifiedDate": "2022-10-06T17:31:39.64Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-28709",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/tomcat-embed-core-10.1.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.5",
+            "UID": "8ef5655010f5ebad"
+          },
+          "InstalledVersion": "10.1.5",
+          "FixedVersion": "11.0.0-M5, 10.1.8, 9.0.74",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-28709",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Fix for CVE-2023-24998 was incomplete",
+          "Description": "The fix for CVE-2023-24998 was incomplete for Apache Tomcat 11.0.0-M2 to 11.0.0-M4, 10.1.5 to 10.1.7, 9.0.71 to 9.0.73 and 8.5.85 to 8.5.87. If non-default HTTP       connector settings were used such that the maxParameterCount could be reached using query string parameters and a request was       submitted that supplied exactly maxParameterCount parameters in the query string, the limit for uploaded request parts could be bypassed with the potential for a denial of service to occur.\n\n\n\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-193"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/05/22/1",
+            "https://access.redhat.com/errata/RHSA-2023:6570",
+            "https://access.redhat.com/security/cve/CVE-2023-28709",
+            "https://bugzilla.redhat.com/2172298",
+            "https://bugzilla.redhat.com/2180856",
+            "https://bugzilla.redhat.com/2210321",
+            "https://errata.almalinux.org/9/ALSA-2023-6570.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/5badf94e79e5de206fc0ef3054fd536b1bb787cd",
+            "https://github.com/apache/tomcat/commit/ba848da71c523d94950d3c53c19ea155189df9dc",
+            "https://github.com/apache/tomcat/commit/d53d8e7f77042cc32a3b98f589496a1ef5088e38",
+            "https://github.com/apache/tomcat/commit/fbd81421629afe8b8a3922d59020cde81caea861",
+            "https://linux.oracle.com/cve/CVE-2023-28709.html",
+            "https://linux.oracle.com/errata/ELSA-2023-7065.html",
+            "https://lists.apache.org/thread/7wvxonzwb7k9hx9jt3q33cmy7j97jo3j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-28709",
+            "https://security.gentoo.org/glsa/202305-37",
+            "https://security.netapp.com/advisory/ntap-20230616-0004",
+            "https://security.netapp.com/advisory/ntap-20230616-0004/",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-8.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2023-28709",
+            "https://www.debian.org/security/2023/dsa-5521"
+          ],
+          "PublishedDate": "2023-05-22T11:15:09.423Z",
+          "LastModifiedDate": "2024-02-16T18:20:07.61Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-46589",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/tomcat-embed-core-10.1.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.5",
+            "UID": "8ef5655010f5ebad"
+          },
+          "InstalledVersion": "10.1.5",
+          "FixedVersion": "11.0.0-M11, 10.1.16, 9.0.83, 8.5.96",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-46589",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: HTTP request smuggling via malformed trailer headers",
+          "Description": "Improper Input Validation vulnerability in Apache Tomcat.Tomcat from 11.0.0-M1 through 11.0.0-M10, from 10.1.0-M1 through 10.1.15, from 9.0.0-M1 through 9.0.82 and from 8.5.0 through 8.5.95 did not correctly parse HTTP trailer headers. A trailer header that exceeded the header size limit could cause Tomcat to treat a single \nrequest as multiple requests leading to the possibility of request \nsmuggling when behind a reverse proxy.\n\nUsers are recommended to upgrade to version 11.0.0-M11 onwards, 10.1.16 onwards, 9.0.83 onwards or 8.5.96 onwards, which fix the issue.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-444"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2023/11/28/2",
+            "https://access.redhat.com/errata/RHSA-2024:1134",
+            "https://access.redhat.com/security/cve/CVE-2023-46589",
+            "https://bugzilla.redhat.com/2252050",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2252050",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46589",
+            "https://errata.almalinux.org/9/ALSA-2024-1134.html",
+            "https://errata.rockylinux.org/RLSA-2024:0539",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0a11905b67fdff58f4efa77fb099ca9967a709b3 (8.5.64)",
+            "https://github.com/apache/tomcat/commit/6f181e1062a472bc5f0234980f66cbde42c1041b",
+            "https://github.com/apache/tomcat/commit/7a2d8818fcea0b51747a67af9510ce7977245ebd",
+            "https://github.com/apache/tomcat/commit/7a2d8818fcea0b51747a67af9510ce7977245ebd (9.0.83)",
+            "https://github.com/apache/tomcat/commit/aa92971e879a519384c517febc39fd04c48d4642",
+            "https://github.com/apache/tomcat/commit/aa92971e879a519384c517febc39fd04c48d4642 (8.5.96)",
+            "https://github.com/apache/tomcat/commit/abdf1d8e8a8f12d1956f2828bf22b9846a6dcdef (8.5.96)",
+            "https://github.com/apache/tomcat/commit/b5776d769bffeade865061bc8ecbeb2b56167b08",
+            "https://github.com/apache/tomcat/commit/b5776d769bffeade865061bc8ecbeb2b56167b08 (10.1.16)",
+            "https://github.com/apache/tomcat/commit/bcacd783e2593ae9b2c07a561bd5f95a145a7761 (8.5.40)",
+            "https://linux.oracle.com/cve/CVE-2023-46589.html",
+            "https://linux.oracle.com/errata/ELSA-2024-1134.html",
+            "https://lists.apache.org/thread/0rqq6ktozqc42ro8hhxdmmdjm1k1tpxr",
+            "https://lists.debian.org/debian-lts-announce/2024/01/msg00001.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-46589",
+            "https://security.netapp.com/advisory/ntap-20231214-0009",
+            "https://security.netapp.com/advisory/ntap-20231214-0009/",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-8.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://ubuntu.com/security/notices/USN-7032-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-46589",
+            "https://www.openwall.com/lists/oss-security/2023/11/28/2"
+          ],
+          "PublishedDate": "2023-11-28T16:15:06.943Z",
+          "LastModifiedDate": "2024-07-12T16:11:18.71Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-34750",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/tomcat-embed-core-10.1.5.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.5",
+            "UID": "8ef5655010f5ebad"
+          },
+          "InstalledVersion": "10.1.5",
+          "FixedVersion": "11.0.0-M21, 10.1.25, 9.0.90",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-34750",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Improper Handling of Exceptional Conditions",
+          "Description": "Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.\n\nUsers are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-755"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2024:5693",
+            "https://access.redhat.com/security/cve/CVE-2024-34750",
+            "https://bugzilla.redhat.com/2295651",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2295651",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34750",
+            "https://errata.almalinux.org/9/ALSA-2024-5693.html",
+            "https://errata.rockylinux.org/RLSA-2024:5693",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/2344a4c0d03e307ba6b8ab6dc8b894cc8bac63f2",
+            "https://github.com/apache/tomcat/commit/2afae300c9ac9c0e516e2e9de580847d925365c3",
+            "https://github.com/apache/tomcat/commit/9fec9a82887853402833a80b584e3762c7423f5f",
+            "https://linux.oracle.com/cve/CVE-2024-34750.html",
+            "https://linux.oracle.com/errata/ELSA-2024-5694.html",
+            "https://lists.apache.org/thread/4kqf0bc9gxymjc2x7v3p7dvplnl77y8l",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-34750",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2024-34750"
+          ],
+          "PublishedDate": "2024-07-03T20:15:04.083Z",
+          "LastModifiedDate": "2024-07-09T16:22:37.12Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-1597",
+          "PkgName": "org.postgresql:postgresql",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/postgresql-42.2.8.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.postgresql/postgresql@42.2.8",
+            "UID": "78987c8b5c029b09"
+          },
+          "InstalledVersion": "42.2.8",
+          "FixedVersion": "42.2.28, 42.3.9, 42.4.4, 42.5.5, 42.6.1, 42.7.2",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-1597",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "pgjdbc: PostgreSQL JDBC Driver allows attacker to inject SQL if using PreferQueryMode=SIMPLE",
+          "Description": "pgjdbc, the PostgreSQL JDBC Driver, allows attacker to inject SQL if using PreferQueryMode=SIMPLE. Note this is not the default. In the default mode there is no vulnerability. A placeholder for a numeric value must be immediately preceded by a minus. There must be a second placeholder for a string value after the first placeholder; both must be on the same line. By constructing a matching string payload, the attacker can inject SQL to alter the query,bypassing the protections that parameterized queries bring against SQL Injection attacks. Versions before 42.7.2, 42.6.1, 42.5.5, 42.4.4, 42.3.9, and 42.2.28 are affected.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-89"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "bitnami": 4,
+            "ghsa": 4,
+            "nvd": 4,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "V3Score": 10
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "V3Score": 10
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/04/02/6",
+            "https://access.redhat.com/errata/RHSA-2024:1436",
+            "https://access.redhat.com/security/cve/CVE-2024-1597",
+            "https://bugzilla.redhat.com/2266523",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2266523",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1597",
+            "https://errata.almalinux.org/9/ALSA-2024-1436.html",
+            "https://errata.rockylinux.org/RLSA-2024:1436",
+            "https://github.com/pgjdbc/pgjdbc",
+            "https://github.com/pgjdbc/pgjdbc/commit/06abfb78a627277a580d4df825f210e96a4e14ee",
+            "https://github.com/pgjdbc/pgjdbc/commit/93b0fcb2711d9c1e3a2a03134369738a02a58b40",
+            "https://github.com/pgjdbc/pgjdbc/security/advisories/GHSA-24rp-q3w6-vc56",
+            "https://linux.oracle.com/cve/CVE-2024-1597.html",
+            "https://linux.oracle.com/errata/ELSA-2024-1436.html",
+            "https://lists.debian.org/debian-lts-announce/2024/05/msg00007.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TZQTSMESZD2RJ5XBPSXH3TIQVUW5DIUU/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-1597",
+            "https://security.netapp.com/advisory/ntap-20240419-0008/",
+            "https://www.cve.org/CVERecord?id=CVE-2024-1597",
+            "https://www.enterprisedb.com/docs/jdbc_connector/latest/01_jdbc_rel_notes/",
+            "https://www.enterprisedb.com/docs/security/assessments/cve-2024-1597/"
+          ],
+          "PublishedDate": "2024-02-19T13:15:07.74Z",
+          "LastModifiedDate": "2024-06-10T17:16:17.2Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2020-13692",
+          "PkgName": "org.postgresql:postgresql",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/postgresql-42.2.8.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.postgresql/postgresql@42.2.8",
+            "UID": "78987c8b5c029b09"
+          },
+          "InstalledVersion": "42.2.8",
+          "FixedVersion": "42.2.13",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-13692",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "postgresql-jdbc: XML external entity (XXE) vulnerability in PgSQLXML",
+          "Description": "PostgreSQL JDBC Driver (aka PgJDBC) before 42.2.13 allows XXE.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-611"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:H",
+              "V3Score": 7.7
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:H",
+              "V3Score": 7.7
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:H",
+              "V2Score": 6.8,
+              "V3Score": 7.7
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:H",
+              "V3Score": 7.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2020-13692.json",
+            "https://access.redhat.com/security/cve/CVE-2020-13692",
+            "https://errata.almalinux.org/8/ALSA-2020-3176.html",
+            "https://github.com/pgjdbc/pgjdbc/commit/14b62aca4764d496813f55a43d050b017e01eb65",
+            "https://jdbc.postgresql.org/documentation/changelog.html#version_42.2.13",
+            "https://linux.oracle.com/cve/CVE-2020-13692.html",
+            "https://linux.oracle.com/errata/ELSA-2020-3285.html",
+            "https://lists.apache.org/thread.html/r00bcc6b2da972e0d6332a4ebc7807e17305d8b8e7fb2ae63d2a3cbfb%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r00bcc6b2da972e0d6332a4ebc7807e17305d8b8e7fb2ae63d2a3cbfb@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r01ae1b3d981cf2e563e9b5b0a6ea54fb3cac8e9a0512ee5269e3420e%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r01ae1b3d981cf2e563e9b5b0a6ea54fb3cac8e9a0512ee5269e3420e@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r0478a1aa9ae0dbd79d8f7b38d0d93fa933ac232e2b430b6f31a103c0%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r0478a1aa9ae0dbd79d8f7b38d0d93fa933ac232e2b430b6f31a103c0@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r1aae77706aab7d89b4fe19be468fc3c73e9cc84ff79cc2c3bd07c05a%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r1aae77706aab7d89b4fe19be468fc3c73e9cc84ff79cc2c3bd07c05a@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r4bdea189c9991aae7a929d28f575ec46e49ed3d68fa5235825f38a4f%40%3Cnotifications.netbeans.apache.org%3E",
+            "https://lists.apache.org/thread.html/r4bdea189c9991aae7a929d28f575ec46e49ed3d68fa5235825f38a4f@%3Cnotifications.netbeans.apache.org%3E",
+            "https://lists.apache.org/thread.html/r631f967db6260d6178740a3314a35d9421facd8212e62320275fa78e%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r631f967db6260d6178740a3314a35d9421facd8212e62320275fa78e@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r7f6d019839df17646ffd0046a99146cacf40492a6c92078f65fd32e0%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/r7f6d019839df17646ffd0046a99146cacf40492a6c92078f65fd32e0@%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/rb89f92aba44f524d5c270e0c44ca7aec4704691c37fe106cf73ec977%40%3Cnotifications.netbeans.apache.org%3E",
+            "https://lists.apache.org/thread.html/rb89f92aba44f524d5c270e0c44ca7aec4704691c37fe106cf73ec977@%3Cnotifications.netbeans.apache.org%3E",
+            "https://lists.apache.org/thread.html/rfe363bf3a46d440ad57fd05c0e313025c7218364bbdc5fd8622ea7ae%40%3Ccommits.camel.apache.org%3E",
+            "https://lists.apache.org/thread.html/rfe363bf3a46d440ad57fd05c0e313025c7218364bbdc5fd8622ea7ae@%3Ccommits.camel.apache.org%3E",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/DCCAPM6FSNOC272DLSNQ6YHXS3OMHGJC/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DCCAPM6FSNOC272DLSNQ6YHXS3OMHGJC",
+            "https://nvd.nist.gov/vuln/detail/CVE-2020-13692",
+            "https://security.netapp.com/advisory/ntap-20200619-0005",
+            "https://security.netapp.com/advisory/ntap-20200619-0005/",
+            "https://ubuntu.com/security/notices/USN-5238-1",
+            "https://www.cve.org/CVERecord?id=CVE-2020-13692",
+            "https://www.debian.org/security/2022/dsa-5196"
+          ],
+          "PublishedDate": "2020-06-04T16:15:12.657Z",
+          "LastModifiedDate": "2023-11-07T03:16:47.58Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-21724",
+          "PkgName": "org.postgresql:postgresql",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/postgresql-42.2.8.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.postgresql/postgresql@42.2.8",
+            "UID": "78987c8b5c029b09"
+          },
+          "InstalledVersion": "42.2.8",
+          "FixedVersion": "42.2.25, 42.3.2",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-21724",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "jdbc-postgresql: Unchecked Class Instantiation when providing Plugin Classes",
+          "Description": "pgjdbc is the offical PostgreSQL JDBC Driver. A security hole was found in the jdbc driver for postgresql database while doing security research. The system using the postgresql library will be attacked when attacker control the jdbc url or properties. pgjdbc instantiates plugin instances based on class names provided via `authenticationPluginClassName`, `sslhostnameverifier`, `socketFactory`, `sslfactory`, `sslpasswordcallback` connection properties. However, the driver did not verify if the class implements the expected interface before instantiating the class. This can lead to code execution loaded via arbitrary classes. Users using plugins are advised to upgrade. There are no known workarounds for this issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-665"
+          ],
+          "VendorSeverity": {
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 4,
+            "redhat": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7
+            },
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2022-21724",
+            "https://github.com/advisories/GHSA-v7wg-cpwc-24m4",
+            "https://github.com/pgjdbc/pgjdbc",
+            "https://github.com/pgjdbc/pgjdbc/commit/f4d0ed69c0b3aae8531d83d6af4c57f22312c813",
+            "https://github.com/pgjdbc/pgjdbc/security/advisories/GHSA-v7wg-cpwc-24m4",
+            "https://lists.debian.org/debian-lts-announce/2022/05/msg00027.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/BVEO7BEFXPBVHSPYL3YKQWZI6DYXQLFS/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/BVEO7BEFXPBVHSPYL3YKQWZI6DYXQLFS",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-21724",
+            "https://security.netapp.com/advisory/ntap-20220311-0005",
+            "https://security.netapp.com/advisory/ntap-20220311-0005/",
+            "https://www.cve.org/CVERecord?id=CVE-2022-21724",
+            "https://www.debian.org/security/2022/dsa-5196"
+          ],
+          "PublishedDate": "2022-02-02T12:15:08.39Z",
+          "LastModifiedDate": "2023-11-07T03:43:42.8Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-31197",
+          "PkgName": "org.postgresql:postgresql",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/postgresql-42.2.8.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.postgresql/postgresql@42.2.8",
+            "UID": "78987c8b5c029b09"
+          },
+          "InstalledVersion": "42.2.8",
+          "FixedVersion": "42.2.26, 42.4.1, 42.3.7",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-31197",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "postgresql: SQL Injection in ResultSet.refreshRow() with malicious column names",
+          "Description": "PostgreSQL JDBC Driver (PgJDBC for short) allows Java programs to connect to a PostgreSQL database using standard, database independent Java code. The PGJDBC implementation of the `java.sql.ResultRow.refreshRow()` method is not performing escaping of column names so a malicious column name that contains a statement terminator, e.g. `;`, could lead to SQL injection. This could lead to executing additional SQL commands as the application's JDBC user. User applications that do not invoke the `ResultSet.refreshRow()` method are not impacted. User application that do invoke that method are impacted if the underlying database that they are querying via their JDBC application may be under the control of an attacker. The attack requires the attacker to trick the user into executing SQL against a table name who's column names would contain the malicious SQL and subsequently invoke the `refreshRow()` method on the ResultSet. Note that the application's JDBC user and the schema owner need not be the same. A JDBC application that executes as a privileged user querying database schemas owned by potentially malicious less-privileged users would be vulnerable. In that situation it may be possible for the malicious user to craft a schema that causes the application to execute commands as the privileged user. Patched versions will be released as `42.2.26` and `42.4.1`. Users are advised to upgrade. There are no known workarounds for this issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-89"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.1
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.1
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:0318",
+            "https://access.redhat.com/security/cve/CVE-2022-31197",
+            "https://bugzilla.redhat.com/2129428",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2129428",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31197",
+            "https://errata.almalinux.org/9/ALSA-2023-0318.html",
+            "https://errata.rockylinux.org/RLSA-2023:0318",
+            "https://github.com/pgjdbc/pgjdbc",
+            "https://github.com/pgjdbc/pgjdbc/commit/739e599d52ad80f8dcd6efedc6157859b1a9d637",
+            "https://github.com/pgjdbc/pgjdbc/security/advisories/GHSA-r38f-c4h4-hqq2",
+            "https://linux.oracle.com/cve/CVE-2022-31197.html",
+            "https://linux.oracle.com/errata/ELSA-2023-0318.html",
+            "https://lists.debian.org/debian-lts-announce/2022/10/msg00009.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/I6WHUADTZBBQLVHO4YG4XCWDGWBT4LRP/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/UTFE6SV33P5YYU2GNTQZQKQRVR3GYE4S/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I6WHUADTZBBQLVHO4YG4XCWDGWBT4LRP",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UTFE6SV33P5YYU2GNTQZQKQRVR3GYE4S",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-31197",
+            "https://www.cve.org/CVERecord?id=CVE-2022-31197"
+          ],
+          "PublishedDate": "2022-08-03T19:15:08.63Z",
+          "LastModifiedDate": "2023-11-07T03:47:35.327Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-20883",
+          "PkgName": "org.springframework.boot:spring-boot-autoconfigure",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-boot-autoconfigure-3.0.4.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@3.0.4",
+            "UID": "dc89ce6c5af8b425"
+          },
+          "InstalledVersion": "3.0.4",
+          "FixedVersion": "3.0.7, 2.7.12, 2.6.15, 2.5.15",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-20883",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-boot: Spring Boot Welcome Page DoS Vulnerability",
+          "Description": "In Spring Boot versions 3.0.0 - 3.0.6, 2.7.0 - 2.7.11, 2.6.0 - 2.6.14, 2.5.0 - 2.5.14 and older unsupported versions, there is potential for a denial-of-service (DoS) attack if Spring MVC is used together with a reverse proxy cache.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-20883",
+            "https://github.com/spring-projects/spring-boot",
+            "https://github.com/spring-projects/spring-boot/commit/418dd1ba5bdad79b55a043000164bfcbda2acd78",
+            "https://github.com/spring-projects/spring-boot/issues/35552",
+            "https://github.com/spring-projects/spring-boot/releases/tag/v2.5.15",
+            "https://github.com/spring-projects/spring-boot/releases/tag/v2.6.15",
+            "https://github.com/spring-projects/spring-boot/releases/tag/v2.7.12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-20883",
+            "https://security.netapp.com/advisory/ntap-20230703-0008",
+            "https://security.netapp.com/advisory/ntap-20230703-0008/",
+            "https://spring.io/security/cve-2023-20883",
+            "https://www.cve.org/CVERecord?id=CVE-2023-20883"
+          ],
+          "PublishedDate": "2023-05-26T17:15:14.047Z",
+          "LastModifiedDate": "2023-07-03T16:15:09.47Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-20863",
+          "PkgName": "org.springframework:spring-expression",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-expression-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-expression@6.0.6",
+            "UID": "ea36ad2291e4a301"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "6.0.8, 5.3.27, 5.2.24.RELEASE",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-20863",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: Spring Expression DoS Vulnerability",
+          "Description": "In spring framework versions prior to 5.2.24 release+ ,5.3.27+ and 6.0.8+ , it is possible for a user to provide a specially crafted SpEL expression that may cause a denial-of-service (DoS) condition.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-917",
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-20863",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/965a6392757d20f9db19241126fcc719a51eac15",
+            "https://github.com/spring-projects/spring-framework/commit/b73f5fcac22555f844cf27a7eeb876cb9d7f7f7e",
+            "https://github.com/spring-projects/spring-framework/commit/ebc82654282bda547fbc20a9749ab1bda886a46f",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-20863",
+            "https://security.netapp.com/advisory/ntap-20240524-0015",
+            "https://security.netapp.com/advisory/ntap-20240524-0015/",
+            "https://spring.io/security/cve-2023-20863",
+            "https://www.cve.org/CVERecord?id=CVE-2023-20863"
+          ],
+          "PublishedDate": "2023-04-13T20:15:07.777Z",
+          "LastModifiedDate": "2024-06-10T17:16:11.053Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22243",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-web-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.0.6",
+            "UID": "932f2ae506f11883"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "6.1.4, 6.0.17, 5.3.32",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22243",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:N/I:L/A:N",
+              "V3Score": 3.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22243",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/util/UriComponentsBuilder.java",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22243",
+            "https://security.netapp.com/advisory/ntap-20240524-0001",
+            "https://security.netapp.com/advisory/ntap-20240524-0001/",
+            "https://spring.io/security/cve-2024-22243",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22243"
+          ],
+          "PublishedDate": "2024-02-23T05:15:08.143Z",
+          "LastModifiedDate": "2024-08-22T15:35:05.027Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22259",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-web-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.0.6",
+            "UID": "932f2ae506f11883"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "6.1.5, 6.0.18, 5.3.33",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22259",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder in Spring Framework to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.\n\nThis is the same as  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22259",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/297cbae2990e1413537c55845a7e0ea0ffd9f9bb",
+            "https://github.com/spring-projects/spring-framework/commit/381f790329a48b74c2a49fc1384dd68ca9153501",
+            "https://github.com/spring-projects/spring-framework/commit/f2fd2f12269c6a781c5b2c20b3c24141055a3d68",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22259",
+            "https://security.netapp.com/advisory/ntap-20240524-0002",
+            "https://security.netapp.com/advisory/ntap-20240524-0002/",
+            "https://spring.io/security/cve-2024-22259",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22259"
+          ],
+          "PublishedDate": "2024-03-16T05:15:20.83Z",
+          "LastModifiedDate": "2024-07-03T01:47:10.08Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22262",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-web-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.0.6",
+            "UID": "932f2ae506f11883"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "5.3.34, 6.0.19, 6.1.6",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22262",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.\n\nThis is the same as  CVE-2024-22259 https://spring.io/security/cve-2024-22259  and  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601",
+            "CWE-918"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22262",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/util/UriComponentsBuilder.java",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22262",
+            "https://security.netapp.com/advisory/ntap-20240524-0003",
+            "https://security.netapp.com/advisory/ntap-20240524-0003/",
+            "https://spring.io/security/cve-2024-22262",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22262"
+          ],
+          "PublishedDate": "2024-04-16T06:15:46.27Z",
+          "LastModifiedDate": "2024-08-27T14:35:01.16Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-34053",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-webmvc-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@6.0.6",
+            "UID": "8ffa3bf155fa39d1"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "6.0.14",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-34053",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: io.micrometer: micrometer-core classpath vulnerable to denial of service",
+          "Description": "In Spring Framework versions 6.0.0 - 6.0.13, it is possible for a user to provide specially crafted HTTP requests that may cause a denial-of-service (DoS) condition.\n\nSpecifically, an application is vulnerable when all of the following are true:\n\n  *  the application uses Spring MVC or Spring WebFlux\n  *  io.micrometer:micrometer-core is on the classpath\n  *  an ObservationRegistry is configured in the application to record observations\n\n\nTypically, Spring Boot applications need the org.springframework.boot:spring-boot-actuator dependency to meet all conditions.\n\n\n",
+          "Severity": "HIGH",
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-34053",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/c18784678df489d06a70e54fcddb5e3821d4b00c",
+            "https://github.com/spring-projects/spring-framework/compare/v6.0.13...v6.0.14",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-34053",
+            "https://security.netapp.com/advisory/ntap-20231214-0007",
+            "https://security.netapp.com/advisory/ntap-20231214-0007/",
+            "https://spring.io/security/cve-2023-34053",
+            "https://www.cve.org/CVERecord?id=CVE-2023-34053"
+          ],
+          "PublishedDate": "2023-11-28T09:15:06.96Z",
+          "LastModifiedDate": "2023-12-14T10:15:07.52Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38816",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/spring-webmvc-6.0.6.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@6.0.6",
+            "UID": "8ffa3bf155fa39d1"
+          },
+          "InstalledVersion": "6.0.6",
+          "FixedVersion": "6.1.13",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38816",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-webmvc: Path Traversal Vulnerability in Spring Applications Using RouterFunctions and FileSystemResource",
+          "Description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html  is in use\n  *  the application runs on Tomcat or Jetty",
+          "Severity": "HIGH",
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38816",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/d86bf8b2056429edf5494456cffcb2b243331c49",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38816",
+            "https://spring.io/security/cve-2024-38816",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38816"
+          ],
+          "PublishedDate": "2024-09-13T06:15:11.19Z",
+          "LastModifiedDate": "2024-09-13T14:06:04.777Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2022-1471",
+          "PkgName": "org.yaml:snakeyaml",
+          "PkgPath": "app/demoapp.jar/BOOT-INF/lib/snakeyaml-1.33.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.yaml/snakeyaml@1.33",
+            "UID": "9461159455127716"
+          },
+          "InstalledVersion": "1.33",
+          "FixedVersion": "2.0",
+          "Status": "fixed",
+          "Layer": {
+            "DiffID": "sha256:a361ff56c0baf8804909c4d4f1545591d4d54209b3add33bb8ae0330c61ec350"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-1471",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "SnakeYaml: Constructor Deserialization Remote Code Execution",
+          "Description": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization. We recommend upgrading to version 2.0 and beyond.\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502",
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "nvd": 4,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L",
+              "V3Score": 8.3
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "http://packetstormsecurity.com/files/175095/PyTorch-Model-Server-Registration-Deserialization-Remote-Code-Execution.html",
+            "http://www.openwall.com/lists/oss-security/2023/11/19/1",
+            "https://access.redhat.com/errata/RHSA-2022:9058",
+            "https://access.redhat.com/security/cve/CVE-2022-1471",
+            "https://bitbucket.org/snakeyaml/snakeyaml",
+            "https://bitbucket.org/snakeyaml/snakeyaml/commits/5014df1a36f50aca54405bb8433bc99a8847f758",
+            "https://bitbucket.org/snakeyaml/snakeyaml/commits/acc44099f5f4af26ff86b4e4e4cc1c874e2dc5c4",
+            "https://bitbucket.org/snakeyaml/snakeyaml/issues/561/cve-2022-1471-vulnerability-in#comment-64581479",
+            "https://bitbucket.org/snakeyaml/snakeyaml/issues/561/cve-2022-1471-vulnerability-in#comment-64634374",
+            "https://bitbucket.org/snakeyaml/snakeyaml/issues/561/cve-2022-1471-vulnerability-in#comment-64876314",
+            "https://bitbucket.org/snakeyaml/snakeyaml/wiki/CVE-2022-1471",
+            "https://bugzilla.redhat.com/2150009",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2150009",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1471",
+            "https://errata.almalinux.org/8/ALSA-2022-9058.html",
+            "https://errata.rockylinux.org/RLSA-2022:9058",
+            "https://github.com/google/security-research/security/advisories/GHSA-mjmj-j48q-9wg2",
+            "https://github.com/mbechler/marshalsec",
+            "https://groups.google.com/g/kubernetes-security-announce/c/mwrakFaEdnc",
+            "https://linux.oracle.com/cve/CVE-2022-1471.html",
+            "https://linux.oracle.com/errata/ELSA-2022-9058-1.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-1471",
+            "https://security.netapp.com/advisory/ntap-20230818-0015",
+            "https://security.netapp.com/advisory/ntap-20230818-0015/",
+            "https://security.netapp.com/advisory/ntap-20240621-0006",
+            "https://security.netapp.com/advisory/ntap-20240621-0006/",
+            "https://snyk.io/blog/unsafe-deserialization-snakeyaml-java-cve-2022-1471",
+            "https://www.cve.org/CVERecord?id=CVE-2022-1471",
+            "https://www.github.com/mbechler/marshalsec/blob/master/marshalsec.pdf?raw=true"
+          ],
+          "PublishedDate": "2022-12-01T11:15:10.553Z",
+          "LastModifiedDate": "2024-06-21T19:15:21.74Z"
+        }
+      ]
+    }
+  ]
+}
