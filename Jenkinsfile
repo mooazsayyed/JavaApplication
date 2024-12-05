@@ -88,7 +88,7 @@ pipeline {
         }
         stage("Sync with ArgoCD") {
             environment { 
-                ARGOCD_PASSWORD = SPjzT0CuVTVCbfSM
+                ARGOCD_PASSWORD = "SPjzT0CuVTVCbfSM"
             }
             steps {
                 script {
