@@ -12,7 +12,7 @@ pipeline {
         BUILD_NUMBER = "${env.BUILD_NUMBER}"
         DOCKER_USER = "mooaz"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
-        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with  ArgoCD URL
+        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
     stages {
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     echo "Running SonarQube analysis..........................."
-                    withSonarQubeEnv(credentialsId:'jenkins-sonarqube-token'){
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
                     }
                 }
@@ -67,6 +67,18 @@ pipeline {
                         sh "docker push ${IMAGE_NAME}"
                     }
                 }
+            }
+        }
+        stage("Trivy Scan") {
+            steps {
+                script {
+                    echo "Scanning Docker image for vulnerabilities..........................."
+                    sh """
+                        trivy image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output trivy-report.json ${IMAGE_NAME} || true
+                    """
+                }
+                // Archive the report as an artifact
+                archiveArtifacts artifacts: 'trivy-report.json', allowEmptyArchive: true
             }
         }
         stage("Update Deployment File") {
@@ -108,10 +120,34 @@ pipeline {
     }
     post {
         success {
-            echo "Pipeline completed successfully!"
+            emailext(
+                to: "sayyedmooaz@gmail.com",
+                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
+                body: """
+Hi,
+
+The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has completed successfully.
+
+Regards,
+Jenkins
+""",
+                mimeType: 'text/html'
+            )
         }
         failure {
-            echo "Pipeline failed. Check logs for details."
+            emailext(
+                to: "sayyedmooaz@gmail.com",
+                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
+                body: """
+Hi,
+
+The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. Please check the logs.
+
+Regards,
+Mooaz
+""",
+                mimeType: 'text/html'
+            )
         }
     }
 }
