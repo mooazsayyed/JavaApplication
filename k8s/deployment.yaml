@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: javaapplication
-          image: mooaz/java-application:1.0.0-69
+          image: mooaz/java-application:1.0.0-75
           ports:
             - containerPort: 8080
 ---
