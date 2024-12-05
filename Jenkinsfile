@@ -9,9 +9,10 @@ pipeline {
     environment {
         APP_NAME = "java-application"
         RELEASE = "1.0.0"
+        BUILD_NUMBER = "${env.BUILD_NUMBER}"
         DOCKER_USER = "mooaz"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
-        ARGOCD_SERVER = "https://13.202.1.32:30102" // Replace URL
+        ARGOCD_SERVER = "https://13.202.1.32:30102" // Replace with your ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
     stages {
@@ -43,18 +44,18 @@ pipeline {
             steps {
                 script {
                     echo "Running SonarQube analysis..........................."
-                    withSonarQubeEnv(credentialsId:'jenkins-sonarqube-token') {
+                    withSonarQubeEnv('jenkins-sonarqube-token') {
                         sh "mvn sonar:sonar"
                     }
-                }   
+                }
             }
         }
         stage("SonarQube Quality Gate") {
             steps {
                 script {
                     echo "Running SonarQube quality gate..........................."
-                    waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
-                }   
+                    waitForQualityGate abortPipeline: false
+                }
             }
         }
         stage("Docker Build and Push") {
@@ -68,36 +69,38 @@ pipeline {
                 }
             }
         }
-        stage('Update Deployment File') {
+        stage("Update Deployment File") {
             environment {
                 GIT_REPO_NAME = "JavaApplication"
                 GIT_USER_NAME = "mooazsayyed"
             }
-             script {
-                // Use double quotes **"** to interpolate variables
-                sh """
-                    git config user.email "sam2221195@sicsr.ac.in"
-                    git config user.name "mooazsayyed"
-                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
-                    git add k8s/deployment.yaml
-                    git commit -m "Update deployment image to version ${IMAGE_NAME}"
-                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
-                """
+            steps {
+                withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
+                    script {
+                        echo "Updating deployment file..........................."
+                        sh """
+                            git config user.email "sam2221195@sicsr.ac.in"
+                            git config user.name "mooazsayyed"
+                            sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
+                            git add k8s/deployment.yaml
+                            git commit -m "Update deployment image to version ${IMAGE_NAME}"
+                            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                        """
+                    }
+                }
             }
         }
         stage("Sync with ArgoCD") {
-            environment { 
-                ARGOCD_PASSWORD = "SPjzT0CuVTVCbfSM"
+            environment {
+                ARGOCD_PASSWORD = credentials('argocd-credentials')
             }
             steps {
                 script {
                     echo "Synchronizing with ArgoCD..........................."
-                    withCredentials([usernamePassword(credentialsId: 'argocd-credentials')]) {
-                        sh '''
-                            argocd login ${ARGOCD_SERVER} --username ${ARGOCD_USERNAME} --password ${ARGOCD_PASSWORD} --insecure
-                            argocd app sync ${APP_NAME}
-                        '''
-                    }
+                    sh """
+                        argocd login ${ARGOCD_SERVER} --username ${ARGOCD_USERNAME} --password ${ARGOCD_PASSWORD} --insecure
+                        argocd app sync ${APP_NAME}
+                    """
                 }
             }
         }
