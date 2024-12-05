@@ -95,7 +95,7 @@ pipeline {
                 ARGOCD_PASSWORD = credentials('argocd-credentials')
             }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'argocd-creds', usernameVariable: 'ARGOCD_USERNAME', passwordVariable: 'ARGOCD_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'argocd-credentials', usernameVariable: 'ARGOCD_USERNAME', passwordVariable: 'ARGOCD_PASSWORD')]) {
                     script {
                         echo "Synchronizing with ArgoCD..........................."
                         sh """
