@@ -66,28 +66,23 @@ pipeline {
             }
         }
         }
-        stage("Update Deployment.yaml") {
-            steps {
-                script {
-                    echo "Updating deployment.yaml with new image..."
-                    // Update the deployment.yaml with the new image
-                    sh """
-                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' /home/ubuntu/.kube/deployment.yaml
-                    """
-                }
-            }
+        
+        stage('Update Deployment File') {
+        environment {
+            GIT_REPO_NAME = "JavaApplication"
+            GIT_USER_NAME = "mooazsayyed"
         }
-        stage("Deploy to Kubernetes") {
-            steps {
-                script {
-                    echo "Applying the deployment to Kubernetes..."
-                    // Ensure you have a working kubeconfig file for the Kubernetes cluster
-                    sh """
-                    export KUBECONFIG=${KUBE_CONFIG}
-                    kubectl apply -f deployment.yaml
-                    kubectl apply -f ingress.yaml
-                    """
-                }
+        steps {
+            withCredentials([string(credentialsId: 'github')]) {
+                sh '''
+                    git config user.email "sam2221195@sicsr.ac.in"
+                    git config user.name "mooazsayyed"
+                    BUILD_NUMBER=${BUILD_NUMBER}
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g'  java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                '''
             }
         }
 

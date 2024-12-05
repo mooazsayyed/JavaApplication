@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaapplication
+  labels:
+    app: javaapplication
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaapplication
+  template:
+    metadata:
+      labels:
+        app: javaapplication
+    spec:
+      containers:
+        - name: javaapplication
+          image: mooaz/java-application:1.0.0-24
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javaapplication
+  labels:
+    app: javaapplication
+spec:
+  selector:
+    app: javaapplication
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
