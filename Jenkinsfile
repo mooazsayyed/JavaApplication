@@ -116,7 +116,7 @@ pipeline {
             emailext (
                 subject: 'Build Notification',
                 body: 'The build is complete.',
-                to: 'sayyedmoaoz@gmail.com',
+                to: 'sayyedmooaz@gmail.com',
                 attachmentsPattern: '**/*.log'
             )
         }
