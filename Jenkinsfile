@@ -118,10 +118,12 @@ pipeline {
             }
         }
     }
-    emailext(
-    to: "sayyedmooaz@gmail.com",
-    subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
-    body: """
+    post {
+        success {
+            emailext(
+                to: "sayyedmooaz@gmail.com",
+                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
+                body: """
 Hi,
 
 The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has completed successfully.
@@ -129,10 +131,31 @@ The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has completed succ
 Regards,
 Jenkins
 """,
-    mimeType: 'text/html',
-    from: "mooazsayyedbiz@gmail.com",
-    recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-    replyTo: "sayyedmooaz@gmail.com",
-    usernamePassword(credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS')
-)
+                mimeType: 'text/html',
+                from: "mooazsayyedbiz@gmail.com",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                replyTo: "sayyedmooaz@gmail.com",
+                usernamePassword(credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS')
+            )
+        }
+        failure {
+            emailext(
+                to: "sayyedmooaz@gmail.com",
+                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
+                body: """
+Hi,
+
+The pipeline for ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. Please check the logs.
+
+Regards,
+Mooaz
+""",
+                mimeType: 'text/html',
+                from: "mooazsayyedbiz@gmail.com",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                replyTo: "sayyedmooaz@gmail.com",
+                usernamePassword(credentialsId: 'gmail-credentials', usernameVariable: 'EMAIL_USER', passwordVariable: 'EMAIL_PASS')
+            )
+        }
+    }
 }
