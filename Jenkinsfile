@@ -12,7 +12,7 @@ pipeline {
         BUILD_NUMBER = "${env.BUILD_NUMBER}"
         DOCKER_USER = "mooaz"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
-        ARGOCD_SERVER = "https://13.202.1.32:30102" // Replace with your ArgoCD URL
+        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with your ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
     stages {
@@ -95,12 +95,13 @@ pipeline {
                 ARGOCD_PASSWORD = credentials('argocd-credentials')
             }
             steps {
-                script {
-                    echo "Synchronizing with ArgoCD..........................."
-                    sh """
-                        argocd login ${ARGOCD_SERVER} --username ${ARGOCD_USERNAME} --password ${ARGOCD_PASSWORD} --insecure
-                        argocd app sync ${APP_NAME}
-                    """
+                withCredentials([usernamePassword(credentialsId: 'argocd-creds', usernameVariable: 'ARGOCD_USERNAME', passwordVariable: 'ARGOCD_PASSWORD')]) {
+                    script {
+                        echo "Synchronizing with ArgoCD..........................."
+                        sh """
+                            argocd login ${env.ARGOCD_SERVER} --username ${env.ARGOCD_USERNAME} --password ${env.ARGOCD_PASSWORD} --insecure
+                        """
+                    }
                 }
             }
         }
