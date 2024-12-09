@@ -92,7 +92,7 @@ pipeline {
                                 git add .
                                 git commit -m "Update deployment image to version ${IMAGE_NAME}"
                                 git fetch origin main
-                                git pull origin main
+                                git pull origin main --no-rebase
                                 git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git main
                             """
 
