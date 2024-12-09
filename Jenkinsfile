@@ -91,6 +91,7 @@ pipeline {
                                 sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
                                 git add .
                                 git commit -m "Update deployment image to version ${IMAGE_NAME}"
+                                git pull -r
                                 git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git main
                             """
 
