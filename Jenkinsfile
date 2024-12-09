@@ -13,6 +13,7 @@ pipeline {
         DOCKER_USER = "mooaz"
         ARGOCD_SERVER = "65.2.149.15:30102" // Replace with ArgoCD URL
         ARGOCD_USERNAME = "admin"
+        JOB_URL = ${env.JOB_URL}
     }
     stages {
         stage("Cleanup Workspace") {
@@ -81,25 +82,29 @@ pipeline {
             }
         }
         stage("Update Deployment File") {
-            steps {
-                withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
-                    script {
-                        echo "Updating deployment file..........................."
-                            sh """
-                                git config user.email "sam2221195@sicsr.ac.in"
-                                git config user.name "mooazsayyed"
-                                sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
-                                git add .
-                                git commit -m "Update deployment image to version ${IMAGE_NAME}"
-                                git fetch origin main
-                                git pull origin main --no-rebase
-                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git main
-                            """
-
-                    }
-                }
+    steps {
+        withCredentials([string(credentialsId: 'github1', variable: 'GITHUB_TOKEN')]) {
+            script {
+                echo "Setting up repository..........................."
+                sh """
+                    if [ ! -d "javaapplication-gitops" ]; then
+                        git clone https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git
+                    fi
+                    cd javaapplication-gitops
+                    git config user.email "sam2221195@sicsr.ac.in"
+                    git config user.name "mooazsayyed"
+                    git fetch origin main
+                    git pull origin main
+                    sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
+                    git add .
+                    git commit -m "Update deployment image to version ${IMAGE_NAME}"
+                    git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git main
+                """
             }
         }
+    }
+}
+
         stage("Sync with ArgoCD") {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'argocd-credentials', usernameVariable: 'ARGOCD_USERNAME', passwordVariable: 'ARGOCD_PASSWORD')]) {
@@ -126,7 +131,7 @@ pipeline {
         success {
             emailext(
             subject: 'Success Notification',
-            body: 'The build ${env.BUILD_NUMBER} is successful. Job URL: ${env.JOB_URL}',
+            body: 'The build is successful. Job URL: ${env.JOB_URL}',
             to: 'sayyedmooaz@gmail.com',
             attachmentsPattern: '**/*.log'
             ) 
