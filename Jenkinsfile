@@ -8,10 +8,10 @@ pipeline {
     }
     environment {
         APP_NAME = "java-application"
-        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${BUILD_NUMBER}"
-        RELEASE = "1.0.0"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}:${RELEASE}-${env.BUILD_NUMBER}"
+        RELEASE = "2.0.0"
         DOCKER_USER = "mooaz"
-        ARGOCD_SERVER = "13.202.1.32:30102" // Replace with ArgoCD URL
+        ARGOCD_SERVER = "65.2.149.15:30102" // Replace with ArgoCD URL
         ARGOCD_USERNAME = "admin"
     }
     stages {
@@ -88,10 +88,10 @@ pipeline {
                             sh """
                                 git config user.email "sam2221195@sicsr.ac.in"
                                 git config user.name "mooazsayyed"
-                                sed -i 's|image: .*|image: ${IMAGE_NAME}|g' k8s/deployment.yaml
+                                sed -i 's|image: .*|image: ${IMAGE_NAME}|g' deployment.yaml
                                 git add .
-                                git commit -m "Update deployment image to version mooaz/java-application:1.0.0-86"
-                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/JavaApplication.git main
+                                git commit -m "Update deployment image to version ${IMAGE_NAME}"
+                                git push https://\${GITHUB_TOKEN}@github.com/mooazsayyed/javaapplication-gitops.git main
                             """
 
                     }
@@ -105,6 +105,7 @@ pipeline {
                         echo "Synchronizing with ArgoCD..........................."
                         sh """
                             argocd login ${ARGOCD_SERVER} --username ${ARGOCD_USERNAME} --password ${ARGOCD_PASSWORD} --insecure
+                            argocd app sync ${APP_NAME}
                         """
                     }
                 }
@@ -118,6 +119,22 @@ pipeline {
                 body: 'The build is complete.',
                 to: 'sayyedmooaz@gmail.com',
                 attachmentsPattern: '**/*.log'
+            )
+        }
+        success {
+            emailext(
+            subject: 'Success Notification',
+            body: 'The build ${env.BUILD_NUMBER} is successful. Job URL: ${env.JOB_URL}',
+            to: 'sayyedmooaz@gmail.com',
+            attachmentsPattern: '**/*.log'
+            ) 
+        }
+        failure {
+            emailext(
+            subject: 'Failure Notification',
+            body: 'The build ${env.BUILD_NUMBER} is failed. Job URL: ${env.JOB_URL}',
+            to: 'sayyedmooaz@gmail.com',
+            attachmentsPattern: '**/*.log'
             )
         }
     }
