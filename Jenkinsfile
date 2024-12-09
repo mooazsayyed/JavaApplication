@@ -13,7 +13,7 @@ pipeline {
         DOCKER_USER = "mooaz"
         ARGOCD_SERVER = "65.2.149.15:30102" // Replace with ArgoCD URL
         ARGOCD_USERNAME = "admin"
-        JOB_URL = ${env.JOB_URL}
+        // JOB_URL = ${env.JOB_URL}
     }
     stages {
         stage("Cleanup Workspace") {
