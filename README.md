@@ -3,7 +3,7 @@ This project demonstrates a robust CI/CD pipeline leveraging Jenkins, SonarQube,
 
 ![Complete ci cd (1) (1)](https://github.com/user-attachments/assets/faadab4b-4a55-4442-b525-36986a9ec49e)
 
-## **Project Overview**
+## **Complete Project Overview **
 
 **Architecture:-**
 
